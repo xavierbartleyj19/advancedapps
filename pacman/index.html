@@ -1,0 +1,2204 @@
+<!DOCTYPE html><html><head>
+    <script src="p5.min.js"></script>
+    <script src="p5.dom.min.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+  </head>
+  <body onload="setup()">
+    <script>
+   
+var rect1
+var rect2
+var rect3
+var rect4
+var rect5
+var rect6
+var rect7
+var rect8
+var rect9
+var rect10
+var rect11
+var rect12
+var rect13
+var rect14
+var rect15
+var rect16
+var rect17
+var rect18
+var rect19
+var rect20
+var rect21
+var rect22
+var rect23
+var rect24
+var rect26
+var rect27
+var rect28
+var rect29
+var rect29
+var rect30
+var rect31
+var rect32
+var rect33
+var rect34
+var rect35
+var rect37
+var rect38
+var rect39
+var rect40
+var rect41
+var rect42
+var rect43
+var rect44
+var rect45
+var rect46
+var rect47
+var rect48
+var rect49
+var rect50
+var rect51
+var rect52
+var rect53
+var rect54
+var dot1
+var dot2
+var dot3
+var dot4
+var dot5
+var dot6
+var dot7
+var dot8
+var dot9
+var dot10
+var dot11
+var dot12
+var dot13
+var dot14
+var dot15
+var dot16
+var dot17
+var dot18
+var dot19
+var dot20
+var dot21
+var dot22
+var dot23
+var dot24
+var dot25
+var dot26
+var dot27
+var dot28
+var dot29
+var dot30
+var dot31
+var dot32
+var dot33
+var dot34
+var dot35
+var dot36
+var dot37
+var dot38
+var dot39
+var dot40
+var dot41
+var dot42
+var dot43
+var dot44
+var dot45
+var dot46
+var dot47
+var dot48
+var dot49
+var dot50
+var dot51
+var dot52
+var dot53
+var dot54
+var dot55
+var dot56
+var dot57
+var dot58
+var dot59
+var dot60
+var dot61
+var dot62
+var dot63
+var dot64
+var dot65
+var dot66
+var dot67
+var dot68
+var dot69
+var dot70
+var dot71
+var dot72
+var dot73
+var dot74
+var dot75
+var dot76
+var dot77
+var dot78
+var dot79
+var dot80
+var dot81
+var dot82
+var dot83
+var dot84
+var dot85
+var dot86
+var dot87
+var dot88
+var dot89
+var dot90
+var dot91
+var dot92
+var dot93
+var dot94
+var dot95
+var dot96
+var dot97
+var dot98
+var dot99
+var dot100
+var dot101
+var dot102
+var dot103
+var dot104
+var dot105
+var dot106
+var dot107
+var dot108
+var dot109
+var dot110
+var dot111
+var dot112
+var dot113
+var dot114
+var dot115
+var dot116
+var dot117
+var dot118
+var dot119
+var dot120
+var dot121
+var dot122
+var dot123
+var dot124
+var dot125
+var dot126
+var dot127
+var dot128
+var dot129
+var dot130
+var dot131
+var dot132
+var dot133
+var dot134
+var dot135
+var dot136
+var dot137
+var dot138
+var dot139
+var dot140
+var dot141
+var dot142
+var dot143
+var dot144
+var dot145
+var dot146
+var dot147
+var dot148
+var dot149
+var dot150
+var dot151
+var dot152
+var dot153
+var dot154
+var dot155
+var dot156
+var dot157
+var dot158
+var dot159
+var dot160
+var dot161
+var dot162
+var dot163
+var dot164
+var dot165
+var dot166
+var dot167
+var dot168
+var dot169
+var dot170
+var dot171
+var dot172
+var dot173
+var dot174
+var dot175
+var dot176
+var dot177
+var dot178
+var dot179
+var dot180
+var dot181
+var dot182
+var dot183
+var dot184
+var dot185
+var dot186
+var dot187
+var dot188
+var dot189
+var dot190
+var dot191
+var dot192
+var dot193
+var dot194
+var dot195
+var dot196
+var dot197
+var dot198
+var dot199
+var dot200
+var dot201
+var dot202
+var dot203
+var dot204
+var dot205
+var dot206
+var dot207
+var dot208
+var dot209
+var dot210
+var dot211
+var dot212
+var dot213
+var dot214
+var dot215
+var dot216
+var dot217
+var dot218
+var dot219
+var dot220
+var dot221
+var dot222
+var dot223
+var dot224
+var dot225
+var dot226
+var dot227
+var dot228
+var dot229
+var dot230
+var dot231
+var dot232
+var dot233
+var dot234
+var dot235
+var dot236
+var dot237
+var dot238
+var dot239
+var dot240
+var dot241
+var dot242
+var dot243
+var dot244
+
+var movevar;
+var movedir;
+var stopmove;
+var moveup;
+var movedown;
+var moveleft;
+var moveright;
+
+var pacman;
+var movekeyvar;
+var yspeed;
+var xpseed;
+var open;
+var score;
+var pinky;
+var blinky;
+var inky;
+var clyde;
+var randommovey;
+var randommovex;
+var blinkymove;
+var blinkydistancex;
+var blinkydistancey;
+var blinkyup
+var blinkydown
+var blinkyleft
+var blinkyright
+var blinkymoveup
+var blinkymovedown
+var blinkymoveleft
+var blinkymoveright
+function setup() {
+  createCanvas(1000, 1000);
+	blinkymove = 1;
+  randommovex = 0;
+  randommovey = 0;
+  open = 0;
+	score = 0;
+  moveup = 0
+  movedown = 0
+  moveleft = 0
+  moveright =  0
+  stopmove = 0;
+  movevar = 0;
+  movekeyvar = 1;
+  xspeed = 0
+  yspeed = 0
+	 blinkymoveup = 0
+	 blinkymovedown = 0
+	 blinkymoveleft = 0
+ blinkymoveright = 0
+ pacman = new Pacman(487.5,750,37,.5,5.5)
+ rect1 = new Wall(472.5, 625, 30, 100)
+ rect2 = new Wall(400, 625, 175, 25)
+ rect3 = new Wall(472.5, 780, 30, 95)
+ rect4 = new Wall(400, 780, 175, 30)
+ rect5 = new Wall(325, 700, 100, 25)
+ rect6 = new Wall(550, 700, 100, 25)
+ rect7 = new Wall(700, 700, 75, 25)
+ rect8 = new Wall(700, 700, 25, 100)
+ rect9 = new Wall(200, 700, 75, 25)
+ rect10 = new Wall(250, 700, 25, 100)
+ rect11 = new Wall(325, 775, 25, 100)
+ rect12 = new Wall(200, 850, 225, 25)
+ rect13 = new Wall(625, 775, 25, 100)
+ rect14 = new Wall(550, 850, 225, 25)
+ rect15 = new Wall(200, 225, 75, 50)
+ rect16 = new Wall(700, 225, 75, 50)
+ rect17 = new Wall(325, 225, 100, 50)
+ rect18 = new Wall(550, 225, 100, 50)
+ rect19 = new Wall(200, 325, 75, 25)
+ rect20 = new Wall(700, 325, 75, 25)
+ rect21 = new Wall(325, 325, 25, 175)
+ rect22 = new Wall(325, 400, 100, 25)
+ rect23 = new Wall(625, 325, 25, 175)
+ rect24 = new Wall(550, 400, 100, 25)
+ rect26 = new Wall(400, 325, 175, 25)
+ rect27 = new Wall(475, 325, 25, 100)
+ rect28 = new Wall(325, 550, 25, 100)
+ rect29 = new Wall(625, 550, 25, 100)
+  rect30 = new Wall(137.5, 650, 12.5, 275)
+  rect31 = new Wall(137.5, 925, 700, 12.5)
+  rect32 = new Wall(825, 650, 12.5, 275)
+  rect33 = new Wall(137.5, 775, 62.5, 25)
+  rect34 = new Wall(775, 775, 62.5, 25)
+  rect35 = new Wall(137.5, 637.5, 137.5, 12.5)
+  rect36 = new Wall(700, 637.5, 137.5, 12.5)
+  rect37 = new Wall(262.5, 550, 12.5, 100)
+  rect38 = new Wall(137.5, 550, 125, 12.5)
+  rect39 = new Wall(262.5, 400, 12.5, 100)
+  rect40 = new Wall(137.5, 487.5, 125, 12.5)
+  rect41 = new Wall(137.5, 162.5, 12.5, 237.5)
+  rect42 = new Wall(137.5, 400, 125, 12.5)
+  rect43 = new Wall(137.5, 162.5, 700, 12.5)
+  rect44 = new Wall(825, 175, 12.5, 237.5)
+  rect45 = new Wall(700, 400, 137.5, 12.5)
+  rect46 = new Wall(700, 400, 12.5, 100)
+  rect47 = new Wall(712.5, 487.5, 125, 12.5)
+  rect48 = new Wall(712.5, 550, 125, 12.5)
+  rect49 = new Wall(700, 550, 12.5, 100)
+  rect50 = new Wall(400, 475, 12.5, 100)
+  rect51 = new Wall(400, 475, 62.5, 12.5)
+  rect52 = new Wall(400, 562.5, 175, 12.5)
+  rect53 = new Wall(562.5, 475, 12.5, 100)
+  rect54 = new Wall(512.5, 475, 62.5, 12.5)
+   dot1 = new Pellet(525, 750, 12.5, 12.5)
+  dot2 = new Pellet(575, 750, 12.5, 12.5)
+  dot3 = new Pellet(600, 750, 12.5, 12.5)
+  dot4 = new Pellet(625, 750, 12.5, 12.5)
+  dot5 = new Pellet(650, 750, 12.5, 12.5)
+  dot6 = new Pellet(675, 750, 12.5, 12.5)
+  dot7 = new Pellet(550, 750, 12.5, 12.5)
+  dot8 = new Pellet(450, 750, 12.5, 12.5)
+  dot9 = new Pellet(425, 750, 12.5, 12.5)
+  dot10 = new Pellet(400, 750, 12.5, 12.5)
+  dot11 = new Pellet(375, 750, 12.5, 12.5)
+ dot208 = new Pellet(350, 750, 12.5, 12.5)
+ dot209 = new Pellet(325, 750, 12.5, 12.5)
+ dot207 = new Pellet(600, 750, 12.5, 12.5)
+ dot206 = new Pellet(450, 725, 12.5, 12.5)
+ dot205 = new Pellet(450, 700, 12.5, 12.5)
+ dot204 = new Pellet(450, 675, 12.5, 12.5)
+ dot203 = new Pellet(450, 675, 12.5, 12.5)
+ dot202 = new Pellet(425, 675, 12.5, 12.5)
+ dot201 = new Pellet(400, 675, 12.5, 12.5)
+ dot200 = new Pellet(375, 675, 12.5, 12.5)
+ dot199 = new Pellet(350, 675, 12.5, 12.5)
+ dot198 = new Pellet(325, 675, 12.5, 12.5)
+dot197   = new Pellet(300, 675, 12.5, 12.5)
+dot12   = new Pellet(275, 675, 12.5, 12.5)
+dot13   = new Pellet(250, 675, 12.5, 12.5)
+dot14   = new Pellet(225, 675, 12.5, 12.5)
+dot15   = new Pellet(200, 675, 12.5, 12.5)
+dot16   = new Pellet(175, 675, 12.5, 12.5)
+dot17  = new Pellet(175, 700, 12.5, 12.5)
+dot18 = new Pellet(175, 725, 12.5, 12.5)
+dot19   = new Pellet(200, 750, 12.5, 12.5)
+dot20   = new Pellet(225, 750, 12.5, 12.5)
+dot21   = new Pellet(225, 775, 12.5, 12.5)
+dot22   = new Pellet(225, 800, 12.5, 12.5)
+dot23   = new Pellet(225, 825, 12.5, 12.5)
+dot24   = new Pellet(200, 825, 12.5, 12.5)
+dot25   = new Pellet(175, 825, 12.5, 12.5)
+dot26   = new Pellet(175, 850, 12.5, 12.5)
+dot27   = new Pellet(175, 875, 12.5, 12.5)
+dot28   = new Pellet(175, 900, 12.5, 12.5)
+dot29   = new Pellet(200, 900, 12.5, 12.5)
+dot30   = new Pellet(225, 900, 12.5, 12.5)
+dot31   = new Pellet(250, 900, 12.5, 12.5)
+dot32   = new Pellet(275, 900, 12.5, 12.5)
+dot33   = new Pellet(300, 900, 12.5, 12.5)
+dot34   = new Pellet(325, 900, 12.5, 12.5)
+dot35   = new Pellet(350, 900, 12.5, 12.5)
+dot36   = new Pellet(375, 900, 12.5, 12.5)
+dot37   = new Pellet(400, 900, 12.5, 12.5)
+dot38   = new Pellet(425, 900, 12.5, 12.5)
+dot39   = new Pellet(450, 900, 12.5, 12.5)
+dot40   = new Pellet(475, 900, 12.5, 12.5)
+dot41   = new Pellet(500, 900, 12.5, 12.5)
+dot42   = new Pellet(525, 900, 12.5, 12.5)
+dot43   = new Pellet(550, 900, 12.5, 12.5)
+dot44   = new Pellet(575, 900, 12.5, 12.5)
+dot45   = new Pellet(600, 900, 12.5, 12.5)
+dot46   = new Pellet(625, 900, 12.5, 12.5)
+dot47   = new Pellet(650, 900, 12.5, 12.5)
+dot48   = new Pellet(675, 900, 12.5, 12.5)
+dot49   = new Pellet(700, 900, 12.5, 12.5)
+dot50   = new Pellet(725, 900, 12.5, 12.5)
+dot51   = new Pellet(750, 900, 12.5, 12.5)
+dot52   = new Pellet(775, 900, 12.5, 12.5)
+dot53   = new Pellet(800, 900, 12.5, 12.5)
+dot54   = new Pellet(800, 875, 12.5, 12.5)
+dot55   = new Pellet(800, 850, 12.5, 12.5)
+dot56   = new Pellet(800, 825, 12.5, 12.5)
+dot57   = new Pellet(775, 825, 12.5, 12.5)
+dot58   = new Pellet(750, 825, 12.5, 12.5)
+dot59   = new Pellet(725, 825, 12.5, 12.5)
+dot60   = new Pellet(700, 825, 12.5, 12.5)
+dot61   = new Pellet(675, 825, 12.5, 12.5)
+dot62   = new Pellet(675, 800, 12.5, 12.5)
+dot63   = new Pellet(675, 775, 12.5, 12.5)
+dot64   = new Pellet(375, 775, 12.5, 12.5)
+dot65   = new Pellet(375, 800, 12.5, 12.5)
+dot66   = new Pellet(375, 825, 12.5, 12.5)
+dot67   = new Pellet(400, 825, 12.5, 12.5)
+dot68   = new Pellet(425, 825, 12.5, 12.5)
+dot69   = new Pellet(450, 825, 12.5, 12.5)
+dot70   = new Pellet(450, 850, 12.5, 12.5)
+dot71   = new Pellet(450, 875, 12.5, 12.5)
+dot72   = new Pellet(300, 750, 12.5, 12.5)
+dot73   = new Pellet(300, 775, 12.5, 12.5)
+dot74   = new Pellet(300, 800, 12.5, 12.5)
+dot75   = new Pellet(300, 825, 12.5, 12.5)
+dot76   = new Pellet(275, 825, 12.5, 12.5)
+dot77   = new Pellet(250, 825, 12.5, 12.5)
+dot78   = new Pellet(600, 775, 12.5, 12.5)
+dot79   = new Pellet(600, 800, 12.5, 12.5)
+dot80   = new Pellet(600, 825, 12.5, 12.5)
+dot81   = new Pellet(575, 825, 12.5, 12.5)
+dot82   = new Pellet(550, 825, 12.5, 12.5)
+dot83   = new Pellet(525, 825, 12.5, 12.5)
+dot84   = new Pellet(525, 850, 12.5, 12.5)
+dot85   = new Pellet(525, 875, 12.5, 12.5)
+dot86   = new Pellet(525, 725, 12.5, 12.5)
+dot87   = new Pellet(525, 700, 12.5, 12.5)
+dot88   = new Pellet(525, 675, 12.5, 12.5)
+dot89   = new Pellet(550, 675, 12.5, 12.5)
+dot90   = new Pellet(575, 675, 12.5, 12.5)
+dot91   = new Pellet(600, 675, 12.5, 12.5)
+dot92   = new Pellet(625, 675, 12.5, 12.5)
+dot93   = new Pellet(650, 675, 12.5, 12.5)
+dot94   = new Pellet(675, 675, 12.5, 12.5)
+dot95   = new Pellet(700, 675, 12.5, 12.5)
+dot96   = new Pellet(725, 675, 12.5, 12.5)
+dot97   = new Pellet(750, 675, 12.5, 12.5)
+dot98   = new Pellet(775, 675, 12.5, 12.5)
+dot99   = new Pellet(800, 675, 12.5, 12.5)
+dot100   = new Pellet(800, 700, 12.5, 12.5)
+dot101   = new Pellet(800, 725, 12.5, 12.5)
+dot102   = new Pellet(775, 750, 12.5, 12.5)
+dot103   = new Pellet(750, 750, 12.5, 12.5)
+dot104   = new Pellet(750, 775, 12.5, 12.5)
+dot105   = new Pellet(750, 800, 12.5, 12.5)
+dot106   = new Pellet(300, 725, 12.5, 12.5)
+dot107   = new Pellet(300, 700, 12.5, 12.5)
+dot108   = new Pellet(675, 700, 12.5, 12.5)
+dot109  = new Pellet(675, 725, 12.5, 12.5)
+dot110   = new Pellet(300, 650, 12.5, 12.5)
+dot111   = new Pellet(300, 625, 12.5, 12.5)
+dot112   = new Pellet(300, 600, 12.5, 12.5)
+dot113  = new Pellet(300, 575, 12.5, 12.5)
+dot114   = new Pellet(300, 550, 12.5, 12.5)
+dot115   = new Pellet(300, 525, 12.5, 12.5)
+dot116   = new Pellet(300, 500, 12.5, 12.5)
+dot117   = new Pellet(300, 475, 12.5, 12.5)
+dot118   = new Pellet(300, 450, 12.5, 12.5)
+dot119 = new Pellet(300, 425, 12.5, 12.5)
+dot120  = new Pellet(300, 400, 12.5, 12.5)
+dot121   = new Pellet(300, 375, 12.5, 12.5)
+dot122   = new Pellet(300, 350, 12.5, 12.5)
+dot123   = new Pellet(300, 325, 12.5, 12.5)
+dot124   = new Pellet(300, 300, 12.5, 12.5)
+dot125   = new Pellet(300, 275, 12.5, 12.5)
+dot126   = new Pellet(300, 250, 12.5, 12.5)
+dot127   = new Pellet(300, 225, 12.5, 12.5)
+dot128   = new Pellet(300, 200, 12.5, 12.5)
+dot129   = new Pellet(675, 650, 12.5, 12.5)
+dot130   = new Pellet(675, 625, 12.5, 12.5)
+dot131   = new Pellet(675, 600, 12.5, 12.5)
+dot132   = new Pellet(675, 575, 12.5, 12.5)
+dot133   = new Pellet(675, 550, 12.5, 12.5)
+dot134   = new Pellet(675, 525, 12.5, 12.5)
+dot135   = new Pellet(675, 500, 12.5, 12.5)
+dot136   = new Pellet(675, 475, 12.5, 12.5)
+dot137   = new Pellet(675, 450, 12.5, 12.5)
+dot138   = new Pellet(675, 425, 12.5, 12.5)
+dot139   = new Pellet(675, 400, 12.5, 12.5)
+dot140   = new Pellet(675, 375, 12.5, 12.5)
+dot141   = new Pellet(675, 350, 12.5, 12.5)
+dot142   = new Pellet(675, 325, 12.5, 12.5)
+dot143   = new Pellet(675, 300, 12.5, 12.5)
+dot144   = new Pellet(675, 275, 12.5, 12.5)
+dot145   = new Pellet(675, 250, 12.5, 12.5)
+dot146   = new Pellet(675, 225, 12.5, 12.5)
+dot147   = new Pellet(675, 200, 12.5, 12.5)
+dot148   = new Pellet(275, 200, 12.5, 12.5)
+dot149   = new Pellet(250, 200, 12.5, 12.5)
+dot150  = new Pellet(225, 200, 12.5, 12.5)
+dot151  = new Pellet(200, 200, 12.5, 12.5)
+dot152  = new Pellet(175, 200, 12.5, 12.5)
+dot153   = new Pellet(325, 200, 12.5, 12.5)
+dot154   = new Pellet(350, 200, 12.5, 12.5)
+dot155   = new Pellet(375, 200, 12.5, 12.5)
+dot156   = new Pellet(400, 200, 12.5, 12.5)
+dot157   = new Pellet(425, 200, 12.5, 12.5)
+dot158   = new Pellet(450, 200, 12.5, 12.5)
+dot159   = new Pellet(275, 300, 12.5, 12.5)
+dot160   = new Pellet(250, 300, 12.5, 12.5)
+dot161   = new Pellet(225, 300, 12.5, 12.5)
+dot162   = new Pellet(200, 300, 12.5, 12.5)
+dot163   = new Pellet(175, 300, 12.5, 12.5)
+dot164   = new Pellet(325, 300, 12.5, 12.5)
+dot165   = new Pellet(350, 300, 12.5, 12.5)
+dot166   = new Pellet(375, 300, 12.5, 12.5)
+dot167  = new Pellet(400, 300, 12.5, 12.5)
+dot168   = new Pellet(425, 300, 12.5, 12.5)
+dot169   = new Pellet(450, 300, 12.5, 12.5)
+dot170   = new Pellet(275, 375, 12.5, 12.5)
+dot171   = new Pellet(250, 375, 12.5, 12.5)
+dot172  = new Pellet(225, 375, 12.5, 12.5)
+dot173   = new Pellet(200, 375, 12.5, 12.5)
+dot174   = new Pellet(175, 375, 12.5, 12.5)
+dot175   = new Pellet(375, 375, 12.5, 12.5)
+dot176   = new Pellet(400, 375, 12.5, 12.5)
+dot177   = new Pellet(425, 375, 12.5, 12.5)
+dot178   = new Pellet(450, 375, 12.5, 12.5)
+dot179   = new Pellet(175, 350, 12.5, 12.5)
+dot180   = new Pellet(175, 325, 12.5, 12.5)
+dot181   = new Pellet(175, 275, 12.5, 12.5)
+dot182   = new Pellet(175, 225, 12.5, 12.5)
+dot183   = new Pellet(375, 350, 12.5, 12.5)
+dot184   = new Pellet(375, 325, 12.5, 12.5)
+dot185   = new Pellet(450, 225, 12.5, 12.5)
+dot186   = new Pellet(450, 250, 12.5, 12.5)
+dot187   = new Pellet(450, 275, 12.5, 12.5)
+dot188   = new Pellet(475, 300, 12.5, 12.5)
+dot189   = new Pellet(500, 300, 12.5, 12.5)
+dot190   = new Pellet(525, 200, 12.5, 12.5)
+dot191   = new Pellet(550, 200, 12.5, 12.5)
+dot192   = new Pellet(575, 200, 12.5, 12.5)
+dot193   = new Pellet(600, 200, 12.5, 12.5)
+dot194   = new Pellet(625, 200, 12.5, 12.5)
+dot195   = new Pellet(650, 200, 12.5, 12.5)
+dot196   = new Pellet(700, 200, 12.5, 12.5)
+  dot210 = new Pellet(725, 200, 12.5, 12.5)
+  dot211 = new Pellet(750, 200, 12.5, 12.5)
+ dot212 = new Pellet(775, 200, 12.5, 12.5)
+  dot213 = new Pellet(800, 200, 12.5, 12.5)
+  dot214 = new Pellet(525, 300, 12.5, 12.5)
+  dot215 = new Pellet(550, 300, 12.5, 12.5)
+  dot216 = new Pellet(575, 300, 12.5, 12.5)
+  dot218 = new Pellet(600, 300, 12.5, 12.5)
+  dot219 = new Pellet(625, 300, 12.5, 12.5)
+  dot220 = new Pellet(650, 300, 12.5, 12.5)
+  dot221= new Pellet(700, 300, 12.5, 12.5)
+  dot222 = new Pellet(725, 300, 12.5, 12.5)
+  dot223 = new Pellet(750, 300, 12.5, 12.5)
+  dot224 = new Pellet(775, 300, 12.5, 12.5)
+  dot225 = new Pellet(800, 300, 12.5, 12.5)
+  dot226 = new Pellet(525, 375, 12.5, 12.5)
+  dot227 = new Pellet(550, 375, 12.5, 12.5)
+  dot228 = new Pellet(575, 375, 12.5, 12.5)
+  dot229 = new Pellet(600, 375, 12.5, 12.5)
+  dot230 = new Pellet(700, 375, 12.5, 12.5)
+  dot231 = new Pellet(725, 375, 12.5, 12.5)
+  dot232 = new Pellet(750, 375, 12.5, 12.5)
+  dot233 = new Pellet(775, 375, 12.5, 12.5)
+  dot234 = new Pellet(800, 375, 12.5, 12.5)
+  dot235 = new Pellet(600, 325, 12.5, 12.5)
+  dot236 = new Pellet(600, 350, 12.5, 12.5)
+  dot237 = new Pellet(525, 225, 12.5, 12.5)
+  dot238 = new Pellet(525, 250, 12.5, 12.5)
+  dot239 = new Pellet(525, 275, 12.5, 12.5)
+  dot240 = new Pellet(800, 225, 12.5, 12.5)
+  dot241 = new Pellet(800, 275, 12.5, 12.5)
+  dot242 = new Pellet(800, 325, 12.5, 12.5)
+  dot243 = new Pellet(800, 350, 12.5, 12.5)
+
+
+
+
+	pacmanup = new Pacmanindicators(18,34.5,36,11)
+  pacmandown = new Pacmanindicators(18,-23.5,36,11)
+  pacmanleft = new Pacmanindicators(34.5,18,11,36)
+  pacmanright= new Pacmanindicators(-23.5,18,11,36)
+  blinky = new Ghost(487.5, 445.75, 43, 37.5,466, 445.75, 43, 18.25,466, 464, 466.5, 476.5, 472.6666666666666667, 464,472.6666666666666667, 464, 479.8333333333333333667, 476.5, 487, 464,487, 464, 494.1666666666666667, 476.5, 501.3333333333333333667, 464,501.3333333333333333667, 464, 509, 476.5, 509, 464,494.1666666666666667, 445.75, 10.75, 14.5,479.8333333333333333667, 445.75, 10.75, 14.5,491.4791666666666667, 445.75, 5.375, 7.25,477.1458333333333333667, 445.75, 5.375, 7.25,211, 4, 4)
+	inky = new Ghost(438, 518.25, 43, 37.5, 416.5, 518.25, 43, 18.25, 416.5, 536.5, 416.5, 549, 423.1666666666666667, 536.5, 423.1666666666666667, 536.5, 430.3333333333333333667, 549, 437.5, 536.5, 437.5, 536.5, 444.6666666666666667, 549, 451.8333333333333333667, 536.5, 451.8333333333333333667, 536.5, 459.5, 549, 459.5, 536.5, 430.3333333333333333667, 518.25, 10.75, 14.5, 444.6666666666666667, 518.25, 10.75, 14.5, 430.3333333333333333667, 514.625, 5.375, 7.25, 444.6666666666666667, 514.625, 5.375, 7.25, 1, 181, 160)
+	pinky = new Ghost(487.5, 518.25, 43, 37.5, 466, 518.25, 43, 18.25, 466, 536.5, 466.5, 549, 472.6666666666666667, 536.5, 472.6666666666666667, 536.5, 479.8333333333333333667, 549, 487, 536.5,487, 536.5, 494.1666666666666667, 549, 501.3333333333333333667, 536.5, 501.3333333333333333667, 536.5, 509, 549, 509, 536.5, 494.1666666666666667, 518.25, 10.75, 14.5, 479.8333333333333333667, 518.25, 10.75, 14.5, 494.1666666666666667, 521.875, 5.375, 7.25, 479.8333333333333333667, 521.875, 5.375, 7.25, 239, 162, 203)
+  clyde = new Ghost(537, 518.25, 43, 37.5,515.5, 518.25, 43, 18.25, 515.5, 536.5, 515.5, 549, 522.1666666666666667, 536.5, 522.1666666666666667, 536.5, 529.3333333333333333667, 549, 536.5, 536.5, 536.5, 536.5, 543.6666666666666667, 549, 550.8333333333333333667, 536.5, 550.8333333333333333667, 536.5, 558.5, 549, 558.5, 536.5, 529.3333333333333333667, 518.25, 10.75, 14.5, 543.6666666666666667, 518.25, 10.75, 14.5, 529.3333333333333333667, 514.625, 5.375, 7.25, 543.66666666666666677, 514.625, 5.375, 7.25, 255, 169, 22)
+	blinkyup = new Blinkyindicators(-4.5,30.5,36,11)
+  blinkydown = new Blinkyindicators(-3.5,-28.5,36,11)
+  blinkyleft = new Blinkyindicators(11,15,11,36)
+  blinkyright = new Blinkyindicators(-45,15,11,36)
+}
+
+class Wall{
+constructor(x,y,widthl,heightl){
+this.x = x;
+this.y = y;
+this.height = heightl
+this.width = widthl
+}
+	show(){
+   fill(12, 48, 107);
+   rect(this.x,this.y,this.width,this.height)
+    
+  }
+
+
+
+}
+class Ghost{
+ constructor(elx, ely, eld1, eld2, rex, rey, rew, reh, t1x1, t1y1, t1x2, t1y2, t1x3, t1y3, t2x1, t2y1, t2x2, t2y2, t2x3, t2y3, t3x1, t3y1, t3x2, t3y2, t3x3, t3y3, t4x1, t4y1, t4x2, t4y2, t4x3, t4y3, ey1x, ey1y, ey1d1, ey1d2, ey2x, ey2y, ey2d1, ey2d2, ey3x, ey3y, ey3d1, ey3d2, ey4x, ey4y, ey4d1, ey4d2, r, g, b){
+  this.elx = elx;
+  this.ely = ely;
+  this.eld1 = eld1;
+   this.eld2 = eld2;
+   this.rex = rex
+   this.rey = rey
+   this.rew = rew
+   this.reh = reh
+   this.t1x1 = t1x1
+  this.t1x2 = t1x2
+   this.t1x3 = t1x3
+    this.t2x1 = t2x1
+  this.t2x2 = t2x2
+   this.t2x3 = t2x3
+    this.t3x1 = t3x1
+  this.t3x2 = t3x2
+   this.t3x3 = t3x3
+    this.t4x1 = t4x1
+  this.t4x2 = t4x2
+   this.t4x3 = t4x3
+    this.t1y1 = t1y1
+  this.t1y2 = t1y2
+   this.t1y3 = t1y3
+    this.t2y1 = t2y1
+  this.t2y2 = t2y2
+   this.t2y3 = t2y3
+    this.t3y1 = t3y1
+  this.t3y2 = t3y2
+   this.t3y3 = t3y3
+    this.t4y1 = t4y1
+  this.t4y2 = t4y2
+   this.t4y3 = t4y3
+   this.ey1x = ey1x
+   this.ey1y = ey1y
+   this.ey1d1 = ey1d1
+   this.ey1d2 = ey1d2
+   this.ey2x = ey2x
+   this.ey2y = ey2y
+   this.ey2d1 = ey2d1
+   this.ey2d2 = ey2d2
+   this.ey3x = ey3x
+   this.ey3y = ey3y
+   this.ey3d1 = ey3d1
+   this.ey3d2 = ey3d2
+   this.ey4x = ey4x
+   this.ey4y = ey4y
+   this.ey4d1 = ey4d1
+   this.ey4d2 = ey4d2
+   this.r = r
+   this.g = g
+   this.b = b
+   
+   
+ }
+  
+  show() {
+      noStroke();
+    fill(this.r,this.g,this.b)
+    ellipse(this.elx,this.ely,this.eld1,this.eld2)
+    rect(this.rex, this.rey, this.rew, this.reh)
+    triangle(this.t1x1,this.t1y1,this.t1x2,this.t1y2,this.t1x3,this.t1y3)
+    triangle(this.t2x1,this.t2y1,this.t2x2,this.t2y2,this.t2x3,this.t2y3)
+    triangle(this.t3x1,this.t3y1,this.t3x2,this.t3y2,this.t3x3,this.t3y3)
+    triangle(this.t4x1,this.t4y1,this.t4x2,this.t4y2,this.t4x3,this.t4y3)
+    fill(255)
+    ellipse(this.ey1x, this.ey1y, this.ey1d1, this.ey1d2)
+    ellipse(this.ey2x, this.ey2y, this.ey2d1, this.ey2d2)
+    fill(5, 59, 168)
+    ellipse(this.ey3x, this.ey3y, this.ey3d1, this.ey3d2)
+    ellipse(this.ey4x, this.ey4y, this.ey4d1, this.ey4d2)
+  }
+   crashWith(otherobj) {
+			//end the game
+        var myleft = this.rex 
+        var myright = this.rex + this.rew
+        var mytop = this.rey  - this.eld2
+        var mybottom = this.rey + this.reh + 12.5
+        var otherleft = otherobj.x- (otherobj.diameter/2)
+        var otherright = otherobj.x + (otherobj.diameter/2)
+        var othertop = otherobj.y - (otherobj.diameter/2)
+        var otherbottom = otherobj.y + (otherobj.diameter/2)
+        var crash = true;
+    		
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+    		  return crash;
+    				
+      
+    }
+  	hitSide(otherobj){
+  	 		var myleft = this.rex 
+        var myright = this.rex + this.rew -3
+        var mytop = this.rey  - (this.eld2/2) + 3
+        var mybottom = this.rey + this.reh + 12.5 - 3
+        var otherleft = otherobj.x
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y 
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+    		var crashbottom = false;
+    		var crashtop = false;
+    		var crashleft =false;
+    		var crashright = false;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+    				if((crash = true) && (mybottom > othertop) && (mytop < (othertop ) ) && (myright > otherleft) && (myleft < otherright)) {
+           crashtop = true;
+           }
+          	if((crash = true) && (mybottom > (otherbottom )) && (mytop < otherbottom ) && (myright > otherleft) && (myleft < otherright)){
+           crashbottom = true;
+           }
+    			 if((crash = true) && (myleft < otherright) && (myright > otherright ) && (mybottom > othertop) && (mytop < otherbottom)){
+           crashright = true;
+           }
+           if((crash = true) && (myleft < otherleft) && (myright > otherleft ) && (mybottom > othertop) && (mytop < otherbottom)){
+           crashleft = true;
+           }
+      if(crashtop == true){
+        return 1;
+      }
+    	else if(crashbottom == true){
+        return 2;
+      }
+    	else if(crashleft == true){
+        return 3;
+      }
+   		else if(crashright == true){
+        return 4;
+      }
+    }
+}
+
+class Pellet{
+constructor(x,y,diameter,diameter2){
+ this.x = x;
+ this.y = y;
+ this.diameter = diameter
+  this.diameter2 = diameter2
+  
+}
+  show(){
+   fill(255)
+    ellipse(this.x,this.y,this.diameter,this.diameter)
+  }
+  crashWith(otherobj) {
+			//end the game
+        var myleft = this.x - (this.diameter/2 )
+        var myright = this.x + (this.diameter/2 )
+        var mytop = this.y - (this.diameter/2)
+        var mybottom = this.y + (this.diameter/2 )
+        var otherleft = otherobj.x- 15
+        var otherright = otherobj.x + 15;
+        var othertop = otherobj.y -15
+        var otherbottom = otherobj.y + 15
+        var crash = true;
+    		
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+    		  return crash;
+    				
+      
+    }
+}
+class Pacman{
+constructor(x,y,diameter,dgrestart,dgreend){
+ 
+ this.x = x;
+ this.y = y;
+ this.diameter = diameter;
+ this.dgrestart = dgrestart;
+ this.dgreend = dgreend;
+ this.yspeed = 0;
+ this.xspeed = 0;
+  
+}
+  show() {
+    fill(255, 204, 0)
+    if(open > 2.5){
+   arc(this.x,this.y,this.diameter,this.diameter,this.dgrestart,this.dgreend,PIE) 
+    }
+    else{ellipse(this.x,this.y, this.diameter)}
+  }
+  
+  
+  hitSide(otherobj) {
+			//end the game
+        var myleft = this.x - (this.diameter/2)
+        var myright = this.x + (this.diameter/2)
+        var mytop = this.y - (this.diameter/2)
+        var mybottom = this.y + (this.diameter/2)
+        var otherleft = otherobj.x
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y 
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+    		var crashbottom = false;
+    		var crashtop = false;
+    		var crashleft =false;
+    		var crashright = false;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+    				if((crash = true) && (mybottom > othertop) && (mytop < (othertop - this.diameter + 5) ) && (myright > otherleft) && (myleft < otherright)) {
+           crashtop = true;
+           }
+          	if((crash = true) && (mybottom > (otherbottom + this.diameter - 5)) && (mytop < otherbottom ) && (myright > otherleft) && (myleft < otherright)){
+           crashbottom = true;
+           }
+    			 if((crash = true) && (myleft < otherright) && (myright > otherright ) && (mybottom > othertop) && (mytop < otherbottom)){
+           crashright = true;
+           }
+           if((crash = true) && (myleft < otherleft) && (myright > otherleft ) && (mybottom > othertop) && (mytop < otherbottom)){
+           crashleft = true;
+           }
+      if(crashtop == true){
+        return 1;
+      }
+    	else if(crashbottom == true){
+        return 2;
+      }
+    	else if(crashleft == true){
+        return 3;
+      }
+   		else if(crashright == true){
+        return 4;
+      }
+    }
+  hitSiden(otherobj) {
+			//end the game
+        var myleft = this.x - (this.diameter/2)
+        var myright = this.x + (this.diameter/2)
+        var mytop = this.y - (this.diameter/2)
+        var mybottom = this.y + (this.diameter/2)
+        var otherleft = otherobj.x 
+        var otherright = otherobj.x + (otherobj.width );
+        var othertop = otherobj.y  
+        var otherbottom = otherobj.y + (otherobj.height );
+        var crash = true;
+    		var crashbottom = false;
+    		var crashtop = false;
+    		var crashleft =false;
+    		var crashright = false;
+        if ((mybottom + 12 < othertop) || (mytop - 12 > otherbottom) || (myright +12 < otherleft) || (myleft - 12 > otherright)) {
+            crash = false;
+        }
+    				if((crash = true) && (mybottom + 7 > othertop ) && (mytop < (othertop) ) && (myright - 14 > otherleft) && (myleft + 14 < otherright)) {
+           return 1;
+           }
+          	else if((crash = true) && (mybottom > (otherbottom)) && (mytop -7 < otherbottom ) && (myright - 14 > otherleft) && (myleft + 14 < otherright)){
+           return 2;
+           }
+    			 else if((crash = true) && (myleft - 7 < otherright) && (myright > otherright ) && (mybottom - 14 > othertop) && (mytop + 14< otherbottom)){
+          	return 3;
+           }
+           else if((crash = true) && (myleft < otherleft) && (myright + 7 > otherleft ) && (mybottom - 14 > othertop) && (mytop + 14 < otherbottom)){
+           return 4;
+           }
+    				else{
+              return 0;
+            }
+    	 
+      
+  }
+    
+  
+}
+      
+      class Pacmanindicators{
+ constructor(dirx,diry,heightl,widthl){
+   this.dirx = dirx
+   this.diry = diry
+  this.x = pacman.x
+  this.y = pacman.y
+   this.height = heightl
+   this.width = widthl
+ }
+  show(){
+    fill(230,20,10)
+   rect(this.x -this.dirx ,this.y - this.diry,this.height,this.width)
+  }
+        crashWith(otherobj) {
+			//end the game
+        var myleft = this.x - this.dirx
+        var myright = this.x- this.dirx + this.height
+        var mytop = this.y- this.diry 
+        var mybottom = this.y- this.diry + this.width
+        var otherleft = otherobj.x
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y 
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+    
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+    		  return crash;
+    				
+      
+    }
+ 
+}
+class Blinkyindicators{
+ constructor(dirx,diry,heightl,widthl){
+   this.dirx = dirx
+   this.diry = diry
+  this.x = blinky.elx
+  this.y = blinky.ely
+   this.height = heightl
+   this.width = widthl
+ }
+  show(){
+    fill(30,200,10)
+   rect(this.x -this.dirx ,this.y - this.diry,this.height,this.width)
+  }
+        crashWith(otherobj) {
+			//end the game
+        var myleft = this.x - this.dirx
+        var myright = this.x- this.dirx + this.height
+        var mytop = this.y- this.diry 
+        var mybottom = this.y- this.diry + this.width
+        var otherleft = otherobj.x
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y 
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+    
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+    		  return crash;
+    				
+      
+    }
+ 
+}
+  
+  
+  
+window.onkeypress = myFunction
+	function myFunction(event) {
+
+    var keys = event.keyCode;
+    
+ if ((keys === 119) &&  (moveup == 0)) {
+     movedir = 1;
+   
+    yspeed =  -2.5;
+    xspeed = 0;
+    pacman.dgrestart = .6 + HALF_PI + PI 
+    pacman.dgreend = 5.6+ HALF_PI + PI
+  
+   
+    
+    
+  }  
+ if ((keys === 115)&& (movedown == 0)) {
+    movedir =2;
+    yspeed = 2.5;
+    xspeed = 0;
+    pacman.dgrestart = .6 + HALF_PI
+    pacman.dgreend = 5.6+ HALF_PI
+     
+    
+      
+  }
+  if ((keys === 97)&& (moveleft == 0)) {
+    movedir = 3;
+  
+    xspeed = -2.5;
+    yspeed = 0;
+    pacman.dgrestart = .6+PI
+     pacman.dgreend = 5.6+PI
+     
+     
+  } 
+    if ((keys === 100)&& (moveright == 0)) {
+      movedir = 4;
+      
+    
+    xspeed = 2.5;
+   yspeed = 0;
+     pacman.dgrestart = .5
+     pacman.dgreend = 5.5
+      
+    
+     
+  } 
+  
+  
+}
+      
+function eat(obj){
+  if(obj.crashWith(pacman)){
+     obj.x -= 1000
+     score += 1
+     }
+	if(score > 241){
+		setTimeout(function(){setup()}, 2000);
+		
+	}
+  
+  
+  
+  
+}
+function hits(obj){
+  if((pacman.hitSide(obj)) == 1){
+    	stopmove = 1
+   		yspeed = 0
+    
+    	pacman.y-= 1
+      stopmove = 0
+    moveup = true;
+    moveleft = true;
+    moveright = true;
+    	
+  }
+  if((pacman.hitSide(obj)) == 2){
+    	stopmove = 1
+   		yspeed = 0
+    	pacman.y += 1
+    	stopmove = 0
+    	movedown = true;
+    moveleft = true;
+    moveright = true;
+    	}
+if((pacman.hitSide(obj)) == 3){	
+  		stopmove = 1
+   		xspeed = 0
+    	pacman.x -= 1
+  		stopmove = 0
+  	moveup = true;
+    moveleft = true;
+    movedown = true;
+    	}
+ if((pacman.hitSide(obj)) == 4){
+   		stopmove = 1
+   		xspeed = 0
+    	pacman.x += 1
+   		stopmove = 0
+   moveup = true;
+    movedown = true;
+    moveright = true;
+    	}
+}
+      
+  function hitsb(obj){
+  if((blinky.hitSide(obj)) == 1){
+		 
+				blinkymovedown = 1
+    
+    
+    	
+			 blinky.rey -= 1
+ 
+		blinky.ely -= 1
+  
+   blinky.t1y1 -= 1
+   blinky.t1y2 -= 1
+   blinky.t1y3 -= 1
+   blinky.t2y1 -= 1
+   blinky.t2y2 -= 1
+   blinky.t2y3 -= 1
+   blinky.t3y1 -= 1
+   blinky.t3y2 -= 1
+   blinky.t3y3 -= 1
+   blinky.t4y1 -= 1
+   blinky.t4y2 -= 1
+   blinky.t4y3 -= 1
+  
+   blinky.ey1y -= 1
+   
+   blinky.ey2y -= 1
+ 
+   blinky.ey3y -= 1
+   
+   blinky.ey4y -= 1
+     
+    	
+  }
+  if((blinky.hitSide(obj)) == 2){
+		
+    blinkymoveup = 1
+  blinky.rey += 1
+ 
+  blinky.ely += 1
+  
+   blinky.t1y1 += 1
+   blinky.t1y2 += 1
+   blinky.t1y3 += 1
+   blinky.t2y1 += 1
+   blinky.t2y2 += 1
+   blinky.t2y3 += 1
+   blinky.t3y1 += 1
+   blinky.t3y2 += 1
+   blinky.t3y3 += 1
+   blinky.t4y1 += 1
+   blinky.t4y2 += 1
+   blinky.t4y3 += 1
+  
+   blinky.ey1y += 1
+   
+   blinky.ey2y += 1
+  
+   blinky.ey3y += 1
+   
+   blinky.ey4y += 1
+		
+    	}
+if((blinky.hitSide(obj)) == 3){	
+	blinkymoveright = 1
+  			
+	blinky.rex -= 1
+ 
+  blinky.elx -= 1
+  
+   blinky.t1x1 -= 1
+   blinky.t1x2 -= 1
+   blinky.t1x3 -= 1
+   blinky.t2x1 -= 1
+   blinky.t2x2 -= 1
+   blinky.t2x3 -= 1
+   blinky.t3x1 -= 1
+   blinky.t3x2 -= 1
+   blinky.t3x3 -= 1
+   blinky.t4x1 -= 1
+   blinky.t4x2 -= 1
+   blinky.t4x3 -= 1
+  
+   blinky.ey1x -= 1
+   
+   blinky.ey2x -= 1
+  
+   blinky.ey3x -= 1
+   
+   blinky.ey4x -= 1
+	
+  		
+    	}
+ if((blinky.hitSide(obj)) == 4){
+	 blinkymoveleft = 1
+   	
+	 blinky.rex += 1
+ 
+  blinky.elx += 1
+  
+   blinky.t1x1 += 1
+   blinky.t1x2 += 1
+   blinky.t1x3 += 1
+   blinky.t2x1 += 1
+   blinky.t2x2 += 1
+   blinky.t2x3 += 1
+   blinky.t3x1 += 1
+   blinky.t3x2 += 1
+   blinky.t3x3 += 1
+   blinky.t4x1 += 1
+   blinky.t4x2 += 1
+   blinky.t4x3 += 1
+  
+   blinky.ey1x += 1
+   
+   blinky.ey2x += 1
+  
+   blinky.ey3x += 1
+   
+   blinky.ey4x += 1
+
+    	
+   		
+    	}
+}
+  function lose(obj){
+      if(obj.crashWith(pacman)){
+        setup()
+        
+        }
+  }
+      
+  function blinkymovef(){
+	 
+		
+    blinkydistancex = blinky.rex - pacman.x
+  blinkydistancey = blinky.rey - pacman.y
+    var trudistancex = Math.abs(blinkydistancex)
+    var truedistancey = Math.abs(blinkydistancey)
+		if((blinkydistancex > 20)&& (trudistancex < truedistancey)&& (blinkymoveleft == 0)){
+       randommovey = 12
+    }
+    if((blinkydistancex < -20) && (trudistancex < truedistancey) && (blinkymoveright == 0)){
+      randommovey = 17
+    }
+    if((blinkydistancey > 20)&& (trudistancex > truedistancey) && (blinkymoveup == 0)){
+       randommovey = 2.5
+      
+    }
+    
+     if((blinkydistancey < -20)&& (trudistancex > truedistancey) && (blinkymovedown == 0)){
+       randommovey = 7.5
+    }
+      if((blinkydistancey < 20) && (blinkydistancey > -20) && (blinkydistancex > 3)){
+        randommovey = 12
+      }
+    if((blinkydistancey < 20) && (blinkydistancey > -20) && (blinkydistancex < -3)){
+        randommovey = 17
+      }
+    if((blinkydistancex < 20) && (blinkydistancex > -20) && (blinkydistancex > 3)){
+        randommovey = 2.5
+      }
+     if((blinkydistancex < 3) && (blinkydistancex > -3) && (blinkydistancex < -3)){
+        randommovey = 7.5
+      }
+    	
+		
+		
+  }
+  
+function draw() {
+  
+  
+  background(0);
+  
+		blinkyup.x = blinky.rex
+	blinkyup.y = blinky.rey
+	blinkydown.x = blinky.rex
+	blinkydown.y = blinky.rey
+	blinkyleft.x = blinky.rex
+	blinkyleft.y = blinky.rey
+	blinkyright.y = blinky.rey
+	blinkyright.x = blinky.rex
+  pacmanup.x = pacman.x
+  pacmanup.y = pacman.y
+   pacmandown.x = pacman.x
+  pacmandown.y = pacman.y
+   pacmanleft.x = pacman.x
+  pacmanleft.y = pacman.y
+   pacmanright.x = pacman.x
+  pacmanright.y = pacman.y
+
+  if((xspeed !== 0) || (yspeed !== 0)){
+  open += .5
+  }
+  else if((xspeed == 0) && (yspeed == 0)){
+    open = 5
+  }
+  if(open > 5) {
+    
+    open = 0
+  }
+		
+  blinkymovef()
+	
+	if((randommovey > 0) && (randommovey < 5)) {
+		 blinky.rey -= 1
+ 
+  blinky.ely -= 1
+  
+   blinky.t1y1 -= 1
+   blinky.t1y2 -= 1
+   blinky.t1y3 -= 1
+   blinky.t2y1 -= 1
+   blinky.t2y2 -= 1
+   blinky.t2y3 -= 1
+   blinky.t3y1 -= 1
+   blinky.t3y2 -= 1
+   blinky.t3y3 -= 1
+   blinky.t4y1 -= 1
+   blinky.t4y2 -= 1
+   blinky.t4y3 -= 1
+  
+   blinky.ey1y -= 1
+   
+   blinky.ey2y -= 1
+ 
+   blinky.ey3y -= 1
+   
+   blinky.ey4y -= 1
+		
+	}
+	else if((randommovey >5.0001) && (randommovey < 10)){
+		blinky.rey += 1
+ 
+  blinky.ely += 1
+  
+   blinky.t1y1 += 1
+   blinky.t1y2 += 1
+   blinky.t1y3 += 1
+   blinky.t2y1 += 1
+   blinky.t2y2 += 1
+   blinky.t2y3 += 1
+   blinky.t3y1 += 1
+   blinky.t3y2 += 1
+   blinky.t3y3 += 1
+   blinky.t4y1 += 1
+   blinky.t4y2 += 1
+   blinky.t4y3 += 1
+  
+   blinky.ey1y += 1
+   
+   blinky.ey2y += 1
+  
+   blinky.ey3y += 1
+   
+   blinky.ey4y += 1
+		
+	}
+	else if((randommovey >10.001) && (randommovey < 15)){
+			blinky.rex -=1
+		 blinky.elx -= 1
+  
+   blinky.t1x1 -= 1
+   blinky.t1x2 -= 1
+   blinky.t1x3 -= 1
+   blinky.t2x1 -= 1
+   blinky.t2x2 -= 1
+   blinky.t2x3 -= 1
+   blinky.t3x1 -= 1
+   blinky.t3x2 -= 1
+   blinky.t3x3 -= 1
+   blinky.t4x1 -= 1
+   blinky.t4x2 -= 1
+   blinky.t4x3 -= 1
+  
+   blinky.ey1x -= 1
+   
+   blinky.ey2x -= 1
+  
+   blinky.ey3x -= 1
+   
+   blinky.ey4x -= 1
+	}
+	 else if((randommovey > 15.001) && (randommovey <21)){
+		
+		blinky.rex += 1
+ 
+  blinky.elx += 1
+  
+   blinky.t1x1 += 1
+   blinky.t1x2 += 1
+   blinky.t1x3 += 1
+   blinky.t2x1 += 1
+   blinky.t2x2 += 1
+   blinky.t2x3 += 1
+   blinky.t3x1 += 1
+   blinky.t3x2 += 1
+   blinky.t3x3 += 1
+   blinky.t4x1 += 1
+   blinky.t4x2 += 1
+   blinky.t4x3 += 1
+  
+   blinky.ey1x += 1
+   
+   blinky.ey2x += 1
+  
+   blinky.ey3x += 1
+   
+   blinky.ey4x += 1
+		
+	}
+	
+
+
+
+ 
+  hits(rect1);
+	  hits(rect2);
+  hits(rect3);
+  hits(rect4);
+  hits(rect5);
+  hits(rect6);
+  hits(rect7);
+  hits(rect8);
+  hits(rect9);
+  hits(rect10);
+  hits(rect11);
+  hits(rect12);
+  hits(rect13);
+  hits(rect14);
+  hits(rect15);
+  hits(rect16);
+  hits(rect17);
+  hits(rect18);
+  hits(rect19);
+  hits(rect20);
+  hits(rect21);
+  hits(rect22);
+  hits(rect23);
+  hits(rect24);
+  
+  hits(rect26);
+  hits(rect27);
+  hits(rect28);
+  hits(rect29);
+   hits(rect30);
+  hits(rect31);
+  hits(rect32);
+  hits(rect33);
+  hits(rect34);
+  hits(rect35);
+  hits(rect36);
+  hits(rect37);
+  hits(rect38);
+  hits(rect39);
+  hits(rect40);
+  hits(rect41);
+  hits(rect42);
+  hits(rect43);
+  hits(rect44);
+  hits(rect45);
+  hits(rect46);
+  hits(rect47);
+  hits(rect48);
+  hits(rect49);
+  hits(rect50);
+  hits(rect51);
+  hits(rect52);
+  hits(rect53);
+  hits(rect54);
+   hitsb(rect1);
+	  hitsb(rect2);
+  hitsb(rect3);
+  hitsb(rect4);
+  hitsb(rect5);
+  hitsb(rect6);
+  hitsb(rect7);
+  hitsb(rect8);
+  hitsb(rect9);
+  hitsb(rect10);
+  hitsb(rect11);
+  hitsb(rect12);
+  hitsb(rect13);
+  //do start a number increasing then if number is > 1 run function, function is 1=0 then timer for 5 seconds then choose move dir then set 1 to repeat cycle
+  
+  hitsb(rect14);
+  hitsb(rect15);
+  hitsb(rect16);
+  hitsb(rect17);
+  hitsb(rect18);
+  hitsb(rect19);
+  hitsb(rect20);
+  hitsb(rect21);
+  hitsb(rect22);
+  hitsb(rect23);
+  hitsb(rect24);
+  
+  hitsb(rect26);
+  hitsb(rect27);
+  hitsb(rect28);
+  hitsb(rect29);
+   hitsb(rect30);
+  hitsb(rect31);
+  hitsb(rect32);
+  hitsb(rect33);
+  hitsb(rect34);
+  hitsb(rect35);
+  hitsb(rect36);
+  hitsb(rect37);
+  hitsb(rect38);
+  hitsb(rect39);
+  hitsb(rect40);
+  hitsb(rect41);
+  hitsb(rect42);
+  hitsb(rect43);
+  hitsb(rect44);
+  hitsb(rect45);
+  hitsb(rect46);
+  hitsb(rect47);
+  hitsb(rect48);
+  hitsb(rect49);
+  hitsb(rect50);
+  hitsb(rect51);
+  hitsb(rect52);
+  hitsb(rect53);
+  hitsb(rect54);
+  eat(dot1);
+  eat(dot2);
+  eat(dot3);
+  eat(dot4);
+  eat(dot5);
+  eat(dot6);
+  eat(dot7);
+  eat(dot8);
+  eat(dot9);
+  eat(dot10);
+  eat(dot11);
+  eat(dot12);
+	eat(dot13);
+	eat(dot14);
+	eat(dot15);
+	eat(dot16);
+		eat(dot17);
+	eat(dot18);
+	eat(dot19);
+eat(dot20);
+eat(dot21);
+eat(dot22);
+eat(dot23);
+eat(dot24);
+eat(dot25);
+eat(dot26);
+eat(dot27);
+eat(dot28);
+eat(dot29);
+eat(dot30);
+eat(dot31);
+eat(dot32);
+eat(dot33);
+eat(dot34);
+eat(dot35);
+eat(dot36);
+eat(dot37);
+eat(dot38);
+eat(dot39);
+eat(dot40);
+eat(dot41);
+eat(dot42);
+eat(dot43);
+eat(dot44);
+eat(dot45);
+eat(dot46);
+eat(dot47);
+eat(dot48);
+eat(dot49);
+eat(dot50);
+eat(dot51);
+eat(dot52);
+eat(dot53);
+eat(dot54);
+eat(dot55);
+eat(dot56);
+eat(dot57);
+eat(dot58);
+eat(dot59);
+eat(dot60);
+eat(dot61);
+eat(dot62);
+eat(dot63);
+eat(dot64);
+eat(dot65);
+eat(dot66);
+eat(dot67);
+eat(dot68);
+eat(dot69);
+eat(dot70);
+eat(dot71)
+eat(dot72);
+eat(dot73);
+eat(dot74);
+eat(dot75);
+eat(dot76);
+eat(dot77);
+eat(dot78);
+eat(dot79);
+eat(dot80);
+eat(dot81);
+eat(dot82);
+eat(dot83);
+eat(dot84);
+eat(dot85);
+eat(dot86);
+eat(dot87);
+eat(dot88);
+eat(dot89);
+eat(dot90);
+eat(dot91);
+eat(dot92);
+eat(dot93);
+eat(dot94)
+eat(dot95);
+eat(dot96);
+eat(dot97);
+eat(dot98);
+eat(dot99);
+eat(dot100);
+eat(dot101);
+eat(dot102);
+eat(dot103);
+eat(dot104);
+eat(dot105);
+eat(dot106);
+eat(dot107)
+eat(dot108);
+eat(dot109);
+eat(dot110);
+eat(dot111);
+eat(dot112);
+eat(dot113);
+eat(dot114);
+eat(dot115);
+eat(dot116);
+eat(dot117);
+eat(dot118);
+eat(dot119);
+eat(dot120)
+eat(dot121);
+eat(dot122);
+eat(dot123);
+eat(dot124);
+eat(dot125);
+eat(dot126);
+eat(dot127);
+eat(dot128);
+eat(dot129);
+eat(dot130);
+eat(dot131);
+eat(dot132);
+eat(dot133);
+eat(dot134);
+eat(dot135);
+eat(dot136);
+eat(dot137);
+eat(dot138);
+eat(dot139);
+eat(dot140)
+eat(dot141);
+eat(dot142);;
+eat(dot143);
+eat(dot144);
+eat(dot145);
+eat(dot146);
+eat(dot147);
+eat(dot148);
+eat(dot149);
+eat(dot150);
+eat(dot151);
+eat(dot152);
+eat(dot153);
+eat(dot154);
+eat(dot155);
+eat(dot156);
+eat(dot157);
+eat(dot158)
+eat(dot159);
+eat(dot160);
+eat(dot161);
+eat(dot162);
+eat(dot163);
+eat(dot164);
+eat(dot165);
+eat(dot166);
+eat(dot167);
+eat(dot168);
+eat(dot169);
+eat(dot170);
+eat(dot171);
+eat(dot172);
+eat(dot173);
+eat(dot174);
+eat(dot175)
+eat(dot176);
+eat(dot177);
+eat(dot178);
+eat(dot179);
+eat(dot180);
+eat(dot181);
+eat(dot182);
+eat(dot183);
+eat(dot184);
+eat(dot185);
+eat(dot186);
+eat(dot187);
+eat(dot188);
+eat(dot189);
+eat(dot190)
+eat(dot191);
+eat(dot192);
+eat(dot193);
+eat(dot194);
+eat(dot195);
+eat(dot196);
+eat(dot197);
+eat(dot198);
+eat(dot199);
+eat(dot200);
+eat(dot201);
+eat(dot202);
+eat(dot203);
+eat(dot204);
+eat(dot205);
+eat(dot206);
+eat(dot207);
+eat(dot208);
+eat(dot209);
+eat(dot210);
+eat(dot211);
+eat(dot212);
+eat(dot213)
+eat(dot214);
+eat(dot215);
+eat(dot216);
+
+eat(dot218);
+eat(dot219);
+eat(dot220);
+eat(dot221);
+eat(dot222);
+eat(dot223);
+eat(dot224)
+eat(dot225);
+eat(dot226);
+eat(dot227);
+eat(dot228);
+eat(dot229);
+eat(dot230);
+eat(dot231);
+eat(dot232);
+eat(dot233);
+eat(dot234);
+eat(dot235);
+eat(dot236);
+eat(dot237);
+eat(dot238);
+eat(dot239);
+eat(dot240);
+eat(dot241);
+eat(dot242);
+eat(dot243);
+lose(pinky);
+lose(blinky);
+lose(inky);
+lose(clyde);
+
+
+  
+  
+	if((pacmanright.crashWith(rect2)) || (pacmanright.crashWith(rect1)) || (pacmanright.crashWith(rect3)) || (pacmanright.crashWith(rect3)) || (pacmanright.crashWith(rect4)) || (pacmanright.crashWith(rect5)) || (pacmanright.crashWith(rect6)) || (pacmanright.crashWith(rect7)) || (pacmanright.crashWith(rect8)) || (pacmanright.crashWith(rect9)) || (pacmanright.crashWith(rect10)) || (pacmanright.crashWith(rect11)) || (pacmanright.crashWith(rect12)) || (pacmanright.crashWith(rect13)) || (pacmanright.crashWith(rect14)) || (pacmanright.crashWith(rect15)) || (pacmanright.crashWith(rect16)) || (pacmanright.crashWith(rect17)) || (pacmanright.crashWith(rect18)) || (pacmanright.crashWith(rect19)) || (pacmanright.crashWith(rect20)) || (pacmanright.crashWith(rect21)) || (pacmanright.crashWith(rect22)) || (pacmanright.crashWith(rect23)) || (pacmanright.crashWith(rect24)) || (pacmanright.crashWith(rect26)) || (pacmanright.crashWith(rect27)) || (pacmanright.crashWith(rect28)) || (pacmanright.crashWith(rect29))|| (pacmanright.crashWith(rect30)) || (pacmanright.crashWith(rect31)) || (pacmanright.crashWith(rect32)) || (pacmanright.crashWith(rect33)) || (pacmanright.crashWith(rect34)) || (pacmanright.crashWith(rect35)) || (pacmanright.crashWith(rect36)) || (pacmanright.crashWith(rect37)) || (pacmanright.crashWith(rect38)) || (pacmanright.crashWith(rect39))|| (pacmanright.crashWith(rect40)) || (pacmanright.crashWith(rect41)) || (pacmanright.crashWith(rect42)) || (pacmanright.crashWith(rect43)) || (pacmanright.crashWith(rect44)) || (pacmanright.crashWith(rect45)) || (pacmanright.crashWith(rect46)) || (pacmanright.crashWith(rect47)) || (pacmanright.crashWith(rect48)) || (pacmanright.crashWith(rect49))|| (pacmanright.crashWith(rect50)) || (pacmanright.crashWith(rect51)) || (pacmanright.crashWith(rect52)) || (pacmanright.crashWith(rect53)) || (pacmanright.crashWith(rect54))){
+   moveright = 1
+   }
+  
+ 
+  else{moveright = 0}
+  if((pacmanleft.crashWith(rect2)) || (pacmanleft.crashWith(rect1)) || (pacmanleft.crashWith(rect3)) || (pacmanleft.crashWith(rect3)) || (pacmanleft.crashWith(rect4)) || (pacmanleft.crashWith(rect5)) || (pacmanleft.crashWith(rect6)) || (pacmanleft.crashWith(rect7)) || (pacmanleft.crashWith(rect8)) || (pacmanleft.crashWith(rect9)) || (pacmanleft.crashWith(rect10)) || (pacmanleft.crashWith(rect11)) || (pacmanleft.crashWith(rect12)) || (pacmanleft.crashWith(rect13)) || (pacmanleft.crashWith(rect14)) || (pacmanleft.crashWith(rect15)) || (pacmanleft.crashWith(rect16)) || (pacmanleft.crashWith(rect17)) || (pacmanleft.crashWith(rect18)) || (pacmanleft.crashWith(rect19)) || (pacmanleft.crashWith(rect20)) || (pacmanleft.crashWith(rect21)) || (pacmanleft.crashWith(rect22)) || (pacmanleft.crashWith(rect23)) || (pacmanleft.crashWith(rect24)) || (pacmanleft.crashWith(rect26)) || (pacmanleft.crashWith(rect27)) || (pacmanleft.crashWith(rect28)) || (pacmanleft.crashWith(rect29)) || (pacmanleft.crashWith(rect30)) || (pacmanleft.crashWith(rect31)) || (pacmanleft.crashWith(rect32)) || (pacmanleft.crashWith(rect33)) || (pacmanleft.crashWith(rect34)) || (pacmanleft.crashWith(rect35)) || (pacmanleft.crashWith(rect36)) || (pacmanleft.crashWith(rect37)) || (pacmanleft.crashWith(rect38)) || (pacmanleft.crashWith(rect39)) || (pacmanleft.crashWith(rect40)) || (pacmanleft.crashWith(rect41)) || (pacmanleft.crashWith(rect42)) || (pacmanleft.crashWith(rect43)) || (pacmanleft.crashWith(rect44))|| (pacmanleft.crashWith(rect45)) || (pacmanleft.crashWith(rect46)) || (pacmanleft.crashWith(rect47)) || (pacmanleft.crashWith(rect48)) || (pacmanleft.crashWith(rect49)) || (pacmanleft.crashWith(rect50)) || (pacmanleft.crashWith(rect51)) || (pacmanleft.crashWith(rect52)) || (pacmanleft.crashWith(rect53)) || (pacmanleft.crashWith(rect54))){
+   moveleft = 1
+   }
+    
+  else{moveleft = 0}
+   
+  if((pacmanup.crashWith(rect2)) || (pacmanup.crashWith(rect1)) || (pacmanup.crashWith(rect3)) || (pacmanup.crashWith(rect3)) || (pacmanup.crashWith(rect4)) || (pacmanup.crashWith(rect5)) || (pacmanup.crashWith(rect6)) || (pacmanup.crashWith(rect7)) || (pacmanup.crashWith(rect8)) || (pacmanup.crashWith(rect9)) || (pacmanup.crashWith(rect10)) || (pacmanup.crashWith(rect11)) || (pacmanup.crashWith(rect12)) || (pacmanup.crashWith(rect13)) || (pacmanup.crashWith(rect14)) || (pacmanup.crashWith(rect15)) || (pacmanup.crashWith(rect16)) || (pacmanup.crashWith(rect17)) || (pacmanup.crashWith(rect18)) || (pacmanup.crashWith(rect19)) || (pacmanup.crashWith(rect20)) || (pacmanup.crashWith(rect21)) || (pacmanup.crashWith(rect22)) || (pacmanup.crashWith(rect23)) || (pacmanup.crashWith(rect24)) || (pacmanup.crashWith(rect26)) || (pacmanup.crashWith(rect27)) || (pacmanup.crashWith(rect28)) || (pacmanup.crashWith(rect29)) || (pacmanup.crashWith(rect30)) || (pacmanup.crashWith(rect31)) || (pacmanup.crashWith(rect32)) || (pacmanup.crashWith(rect33)) || (pacmanup.crashWith(rect34)) || (pacmanup.crashWith(rect35)) || (pacmanup.crashWith(rect36)) || (pacmanup.crashWith(rect37)) || (pacmanup.crashWith(rect38)) || (pacmanup.crashWith(rect39)) || (pacmanup.crashWith(rect40)) || (pacmanup.crashWith(rect41)) || (pacmanup.crashWith(rect42)) || (pacmanup.crashWith(rect43)) || (pacmanup.crashWith(rect44)) || (pacmanup.crashWith(rect45)) || (pacmanup.crashWith(rect46)) || (pacmanup.crashWith(rect47)) || (pacmanup.crashWith(rect48)) || (pacmanup.crashWith(rect49)) || (pacmanup.crashWith(rect50)) || (pacmanup.crashWith(rect51)) || (pacmanup.crashWith(rect52)) || (pacmanup.crashWith(rect53)) || (pacmanup.crashWith(rect54))){
+   moveup = 1
+   
+   }
+  else{moveup = 0}
+   
+  if((pacmandown.crashWith(rect2)) || (pacmandown.crashWith(rect1)) || (pacmandown.crashWith(rect3)) || (pacmandown.crashWith(rect3)) || (pacmandown.crashWith(rect4)) || (pacmandown.crashWith(rect5)) || (pacmandown.crashWith(rect6)) || (pacmandown.crashWith(rect7)) || (pacmandown.crashWith(rect8)) || (pacmandown.crashWith(rect9)) || (pacmandown.crashWith(rect10)) || (pacmandown.crashWith(rect11)) || (pacmandown.crashWith(rect12)) || (pacmandown.crashWith(rect13)) || (pacmandown.crashWith(rect14)) || (pacmandown.crashWith(rect15)) || (pacmandown.crashWith(rect16)) || (pacmandown.crashWith(rect17)) || (pacmandown.crashWith(rect18)) || (pacmandown.crashWith(rect19)) || (pacmandown.crashWith(rect20)) || (pacmandown.crashWith(rect21)) || (pacmandown.crashWith(rect22)) || (pacmandown.crashWith(rect23)) || (pacmandown.crashWith(rect24)) || (pacmandown.crashWith(rect26)) || (pacmandown.crashWith(rect27)) || (pacmandown.crashWith(rect28)) || (pacmandown.crashWith(rect29))   || (pacmandown.crashWith(rect30)) || (pacmandown.crashWith(rect31))|| (pacmandown.crashWith(rect32)) || (pacmandown.crashWith(rect33)) || (pacmandown.crashWith(rect34)) || (pacmandown.crashWith(rect35)) || (pacmandown.crashWith(rect36)) || (pacmandown.crashWith(rect37)) || (pacmandown.crashWith(rect38)) || (pacmandown.crashWith(rect39)) || (pacmandown.crashWith(rect40)) || (pacmandown.crashWith(rect41)) || (pacmandown.crashWith(rect42)) || (pacmandown.crashWith(rect43)) || (pacmandown.crashWith(rect44)) || (pacmandown.crashWith(rect45)) || (pacmandown.crashWith(rect46)) || (pacmandown.crashWith(rect47)) || (pacmandown.crashWith(rect48)) || (pacmandown.crashWith(rect49)) || (pacmandown.crashWith(rect50)) || (pacmandown.crashWith(rect51)) || (pacmandown.crashWith(rect52)) || (pacmandown.crashWith(rect53)) || (pacmandown.crashWith(rect54))){
+   movedown = 1
+   }
+
+  else{movedown = 0}
+  
+  
+  
+	if((blinkyright.crashWith(rect2)) || (blinkyright.crashWith(rect1)) || (blinkyright.crashWith(rect3)) || (blinkyright.crashWith(rect3)) || (blinkyright.crashWith(rect4)) || (blinkyright.crashWith(rect5)) || (blinkyright.crashWith(rect6)) || (blinkyright.crashWith(rect7)) || (blinkyright.crashWith(rect8)) || (blinkyright.crashWith(rect9)) || (blinkyright.crashWith(rect10)) || (blinkyright.crashWith(rect11)) || (blinkyright.crashWith(rect12)) || (blinkyright.crashWith(rect13)) || (blinkyright.crashWith(rect14)) || (blinkyright.crashWith(rect15)) || (blinkyright.crashWith(rect16)) || (blinkyright.crashWith(rect17)) || (blinkyright.crashWith(rect18)) || (blinkyright.crashWith(rect19)) || (blinkyright.crashWith(rect20)) || (blinkyright.crashWith(rect21)) || (blinkyright.crashWith(rect22)) || (blinkyright.crashWith(rect23)) || (blinkyright.crashWith(rect24)) || (blinkyright.crashWith(rect26)) || (blinkyright.crashWith(rect27)) || (blinkyright.crashWith(rect28)) || (blinkyright.crashWith(rect29))|| (blinkyright.crashWith(rect30)) || (blinkyright.crashWith(rect31)) || (blinkyright.crashWith(rect32)) || (blinkyright.crashWith(rect33)) || (blinkyright.crashWith(rect34)) || (blinkyright.crashWith(rect35)) || (blinkyright.crashWith(rect36)) || (blinkyright.crashWith(rect37)) || (blinkyright.crashWith(rect38)) || (blinkyright.crashWith(rect39))|| (blinkyright.crashWith(rect40)) || (blinkyright.crashWith(rect41)) || (blinkyright.crashWith(rect42)) || (blinkyright.crashWith(rect43)) || (blinkyright.crashWith(rect44)) || (blinkyright.crashWith(rect45)) || (blinkyright.crashWith(rect46)) || (blinkyright.crashWith(rect47)) || (blinkyright.crashWith(rect48)) || (blinkyright.crashWith(rect49))|| (blinkyright.crashWith(rect50)) || (blinkyright.crashWith(rect51)) || (blinkyright.crashWith(rect52)) || (blinkyright.crashWith(rect53)) || (blinkyright.crashWith(rect54))){
+   blinkymoveright = 1
+   }
+  
+ 
+  else{blinkymoveright = 0}
+  if((blinkyleft.crashWith(rect2)) || (blinkyleft.crashWith(rect1)) || (blinkyleft.crashWith(rect3)) || (blinkyleft.crashWith(rect3)) || (blinkyleft.crashWith(rect4)) || (blinkyleft.crashWith(rect5)) || (blinkyleft.crashWith(rect6)) || (blinkyleft.crashWith(rect7)) || (blinkyleft.crashWith(rect8)) || (blinkyleft.crashWith(rect9)) || (blinkyleft.crashWith(rect10)) || (blinkyleft.crashWith(rect11)) || (blinkyleft.crashWith(rect12)) || (blinkyleft.crashWith(rect13)) || (blinkyleft.crashWith(rect14)) || (blinkyleft.crashWith(rect15)) || (blinkyleft.crashWith(rect16)) || (blinkyleft.crashWith(rect17)) || (blinkyleft.crashWith(rect18)) || (blinkyleft.crashWith(rect19)) || (blinkyleft.crashWith(rect20)) || (blinkyleft.crashWith(rect21)) || (blinkyleft.crashWith(rect22)) || (blinkyleft.crashWith(rect23)) || (blinkyleft.crashWith(rect24)) || (blinkyleft.crashWith(rect26)) || (blinkyleft.crashWith(rect27)) || (blinkyleft.crashWith(rect28)) || (blinkyleft.crashWith(rect29)) || (blinkyleft.crashWith(rect30)) || (blinkyleft.crashWith(rect31)) || (blinkyleft.crashWith(rect32)) || (blinkyleft.crashWith(rect33)) || (blinkyleft.crashWith(rect34)) || (blinkyleft.crashWith(rect35)) || (blinkyleft.crashWith(rect36)) || (blinkyleft.crashWith(rect37)) || (blinkyleft.crashWith(rect38)) || (blinkyleft.crashWith(rect39)) || (blinkyleft.crashWith(rect40)) || (blinkyleft.crashWith(rect41)) || (blinkyleft.crashWith(rect42)) || (blinkyleft.crashWith(rect43)) || (blinkyleft.crashWith(rect44))|| (blinkyleft.crashWith(rect45)) || (blinkyleft.crashWith(rect46)) || (blinkyleft.crashWith(rect47)) || (blinkyleft.crashWith(rect48)) || (blinkyleft.crashWith(rect49)) || (blinkyleft.crashWith(rect50)) || (blinkyleft.crashWith(rect51)) || (blinkyleft.crashWith(rect52)) || (blinkyleft.crashWith(rect53)) || (blinkyleft.crashWith(rect54))){
+   blinkymoveleft = 1
+   }
+    
+  else{blinkymoveleft = 0}
+   
+  if((blinkyup.crashWith(rect2)) || (blinkyup.crashWith(rect1)) || (blinkyup.crashWith(rect3)) || (blinkyup.crashWith(rect3)) || (blinkyup.crashWith(rect4)) || (blinkyup.crashWith(rect5)) || (blinkyup.crashWith(rect6)) || (blinkyup.crashWith(rect7)) || (blinkyup.crashWith(rect8)) || (blinkyup.crashWith(rect9)) || (blinkyup.crashWith(rect10)) || (blinkyup.crashWith(rect11)) || (blinkyup.crashWith(rect12)) || (blinkyup.crashWith(rect13)) || (blinkyup.crashWith(rect14)) || (blinkyup.crashWith(rect15)) || (blinkyup.crashWith(rect16)) || (blinkyup.crashWith(rect17)) || (blinkyup.crashWith(rect18)) || (blinkyup.crashWith(rect19)) || (blinkyup.crashWith(rect20)) || (blinkyup.crashWith(rect21)) || (blinkyup.crashWith(rect22)) || (blinkyup.crashWith(rect23)) || (blinkyup.crashWith(rect24)) || (blinkyup.crashWith(rect26)) || (blinkyup.crashWith(rect27)) || (blinkyup.crashWith(rect28)) || (blinkyup.crashWith(rect29)) || (blinkyup.crashWith(rect30)) || (blinkyup.crashWith(rect31)) || (blinkyup.crashWith(rect32)) || (blinkyup.crashWith(rect33)) || (blinkyup.crashWith(rect34)) || (blinkyup.crashWith(rect35)) || (blinkyup.crashWith(rect36)) || (blinkyup.crashWith(rect37)) || (blinkyup.crashWith(rect38)) || (blinkyup.crashWith(rect39)) || (blinkyup.crashWith(rect40)) || (blinkyup.crashWith(rect41)) || (blinkyup.crashWith(rect42)) || (blinkyup.crashWith(rect43)) || (blinkyup.crashWith(rect44)) || (blinkyup.crashWith(rect45)) || (blinkyup.crashWith(rect46)) || (blinkyup.crashWith(rect47)) || (blinkyup.crashWith(rect48)) || (blinkyup.crashWith(rect49)) || (blinkyup.crashWith(rect50)) || (blinkyup.crashWith(rect51)) || (blinkyup.crashWith(rect52)) || (blinkyup.crashWith(rect53)) || (blinkyup.crashWith(rect54))){
+   blinkymoveup = 1
+   
+   }
+  else{blinkymoveup = 0}
+   
+  if((blinkydown.crashWith(rect2)) || (blinkydown.crashWith(rect1)) || (blinkydown.crashWith(rect3)) || (blinkydown.crashWith(rect3)) || (blinkydown.crashWith(rect4)) || (blinkydown.crashWith(rect5)) || (blinkydown.crashWith(rect6)) || (blinkydown.crashWith(rect7)) || (blinkydown.crashWith(rect8)) || (blinkydown.crashWith(rect9)) || (blinkydown.crashWith(rect10)) || (blinkydown.crashWith(rect11)) || (blinkydown.crashWith(rect12)) || (blinkydown.crashWith(rect13)) || (blinkydown.crashWith(rect14)) || (blinkydown.crashWith(rect15)) || (blinkydown.crashWith(rect16)) || (blinkydown.crashWith(rect17)) || (blinkydown.crashWith(rect18)) || (blinkydown.crashWith(rect19)) || (blinkydown.crashWith(rect20)) || (blinkydown.crashWith(rect21)) || (blinkydown.crashWith(rect22)) || (blinkydown.crashWith(rect23)) || (blinkydown.crashWith(rect24)) || (blinkydown.crashWith(rect26)) || (blinkydown.crashWith(rect27)) || (blinkydown.crashWith(rect28)) || (blinkydown.crashWith(rect29))   || (blinkydown.crashWith(rect30)) || (blinkydown.crashWith(rect31))|| (blinkydown.crashWith(rect32)) || (blinkydown.crashWith(rect33)) || (blinkydown.crashWith(rect34)) || (blinkydown.crashWith(rect35)) || (blinkydown.crashWith(rect36)) || (blinkydown.crashWith(rect37)) || (blinkydown.crashWith(rect38)) || (blinkydown.crashWith(rect39)) || (blinkydown.crashWith(rect40)) || (blinkydown.crashWith(rect41)) || (blinkydown.crashWith(rect42)) || (blinkydown.crashWith(rect43)) || (blinkydown.crashWith(rect44)) || (blinkydown.crashWith(rect45)) || (blinkydown.crashWith(rect46)) || (blinkydown.crashWith(rect47)) || (blinkydown.crashWith(rect48)) || (blinkydown.crashWith(rect49)) || (blinkydown.crashWith(rect50)) || (blinkydown.crashWith(rect51)) || (blinkydown.crashWith(rect52)) || (blinkydown.crashWith(rect53)) || (blinkydown.crashWith(rect54))){
+   blinkymovedown = 1
+   }
+	else{blinkymovedown = 0}
+
+
+  
+ 
+    
+    
+ 
+  pacman.x += xspeed
+  pacman.y += yspeed
+  
+
+   
+
+  rect1.show()
+  rect2.show()
+  rect3.show()
+  rect4.show()
+  rect5.show()
+  rect6.show()
+  rect7.show()
+  rect8.show()
+  rect9.show()
+  rect10.show()
+  rect11.show()
+  rect12.show()
+  rect13.show()
+  rect14.show()
+  rect15.show()
+  rect16.show()
+  rect17.show()
+  rect18.show()
+  rect19.show()
+  rect20.show()
+  rect21.show()
+  rect22.show()
+  rect23.show()
+  rect24.show()
+  
+  rect26.show()
+  rect27.show()
+  rect28.show()
+  rect29.show()
+   rect30.show()
+  rect31.show()
+  rect32.show()
+  rect33.show()
+  rect34.show()
+  rect35.show()
+  rect36.show()
+  rect37.show()
+  rect38.show()
+  rect39.show()
+  rect40.show()
+  rect41.show()
+  rect42.show()
+  rect43.show()
+  rect44.show()
+  rect45.show()
+  rect46.show()
+  rect47.show()
+  rect48.show()
+  rect49.show()
+  rect50.show()
+  rect51.show()
+  rect52.show()
+  rect53.show()
+  rect54.show()
+  dot1.show()
+  dot2.show()
+  dot3.show()
+  dot4.show()
+  dot5.show()
+  dot6.show()
+  dot7.show()
+  dot8.show()
+  dot9.show()
+  dot10.show()
+  
+  pacmanup.show()
+  pacmandown.show()
+  pacmanleft.show()
+  pacmanright.show()
+  dot11.show()
+    dot12.show()
+   dot13.show()
+   dot14.show()
+   dot15.show()
+   dot16.show()
+   dot17.show()
+   dot18.show()
+   dot19.show()
+   dot20.show()
+   dot21.show()
+   dot22.show()
+   dot23.show()
+   dot24.show()
+   dot25.show()
+   dot26.show()
+   dot27.show()
+   dot28.show()
+   dot29.show()
+   dot30.show()
+   dot31.show()
+   dot32.show()
+   dot33.show()
+   dot34.show()
+   dot35.show()
+   dot36.show()
+   dot37.show()
+   dot38.show()
+   dot39.show()
+   dot40.show()
+   dot41.show()
+   dot42.show()
+   dot43.show()
+   dot44.show()
+   dot45.show()
+   dot46.show()
+   dot47.show()
+   dot48.show()
+   dot49.show()
+   dot50.show()
+   dot51.show()
+   dot52.show()
+   dot53.show()
+   dot54.show()
+   dot55.show()
+   dot56.show()
+   dot57.show()
+   dot58.show()
+   dot59.show()
+   dot60.show()
+   dot61.show()
+   dot62.show()
+   dot63.show()
+   dot64.show()
+   dot65.show()
+   dot66.show()
+   dot67.show()
+   dot68.show()
+   dot69.show()
+   dot70.show()
+   dot71.show()
+   dot72.show()
+   dot73.show()
+   dot74.show()
+   dot75.show()
+   dot76.show()
+   dot77.show()
+   dot78.show()
+   dot79.show()
+   dot80.show()
+   dot81.show()
+   dot82.show()
+   dot83.show()
+   dot84.show()
+   dot85.show()
+   dot86.show()
+   dot86.show()
+   dot87.show()
+   dot88.show()
+   dot89.show()
+   dot90.show()
+   dot91.show()
+   dot92.show()
+   dot93.show()
+   dot94.show()
+   dot95.show()
+   dot96.show()
+   dot97.show()
+   dot98.show()
+   dot99.show()
+   dot100.show()
+   dot101.show()
+   dot102.show()
+   dot103.show()
+   dot104.show()
+   dot105.show()
+   dot106.show()
+   dot107.show()
+   dot108.show()
+   dot109.show()
+   dot110.show()
+   dot111.show()
+   dot112.show()
+   dot113.show()
+   dot114.show()
+   dot115.show()
+   dot116.show()
+   dot117.show()
+   dot118.show()
+   dot119.show()
+   dot120.show()
+   dot121.show()
+   dot122.show()
+   dot123.show()
+   dot124.show()
+   dot125.show()
+   dot126.show()
+   dot127.show()
+   dot128.show()
+   dot129.show()
+   dot130.show()
+   dot131.show()
+   dot132.show()
+   dot133.show()
+   dot134.show()
+   dot135.show()
+   dot136.show()
+   dot137.show()
+   dot138.show()
+   dot139.show()
+   dot140.show()
+   dot141.show()
+   dot142.show()
+   dot143.show()
+   dot144.show()
+   dot145.show()
+   dot146.show()
+   dot147.show()
+   dot148.show()
+   dot149.show()
+   dot150.show()
+   dot151.show()
+   dot152.show()
+   dot153.show()
+   dot154.show()
+   dot155.show()
+   dot156.show()
+   dot157.show()
+   dot158.show()
+   dot159.show()
+   dot160.show()
+   dot161.show()
+   dot162.show()
+   dot163.show()
+   dot164.show()
+   dot165.show()
+   dot166.show()
+   dot167.show()
+   dot168.show()
+   dot169.show()
+   dot170.show()
+   dot171.show()
+   dot172.show()
+   dot173.show()
+   dot174.show()
+   dot175.show()
+   dot176.show()
+   dot177.show()
+   dot178.show()
+  dot179.show()
+   dot180.show()
+   dot181.show()
+   dot182.show()
+   dot183.show()
+   dot184.show()
+   dot185.show()
+   dot186.show()
+   dot187.show()
+   dot188.show()
+   dot189.show()
+   dot190.show()
+   dot191.show()
+   dot192.show()
+   dot193.show()
+   dot194.show()
+   dot195.show()
+   
+   dot196.show()
+   dot197.show()
+   dot198.show()
+   dot199.show()
+   dot200.show()
+  	dot201.show()	
+  dot202.show()
+   dot203.show()
+   dot204.show()
+   dot205.show()
+   dot206.show()
+   dot207.show()
+   dot208.show()
+   dot209.show()
+   dot210.show()
+   dot211.show()
+   dot212.show()
+   dot213.show()
+   dot214.show()
+   dot215.show()
+   dot216.show()
+
+   dot218.show()
+   dot219.show()
+   dot220.show()
+   dot221.show()
+   dot222.show()
+   dot223.show()
+   dot224.show()
+   dot225.show()
+   dot226.show()
+   dot227.show()
+   dot228.show()
+   dot229.show()
+   dot230.show()
+   dot231.show()
+   dot232.show()
+   dot233.show()
+   dot234.show()
+   dot235.show()
+   dot236.show()
+   dot237.show()
+   dot238.show()
+   dot239.show()
+   dot240.show()
+   dot241.show()
+   dot242.show()
+   dot243.show()
+  	pacman.show()
+  blinky.show()
+  inky.show()
+  pinky.show()
+	clyde.show()
+  blinkyup.show()
+  blinkydown.show()
+  blinkyleft.show()
+  blinkyright.show()
+	
+  if(pacman.x < 127.5){
+    pacman.x = 844.8
+  }
+  if(pacman.x > 845) {
+   pacman.x = 127.7 
+  }
+
+}
+    </script>
+  
+</body></html>

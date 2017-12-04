@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+	
+	.slider {
+		display: inline-block;
+	
+			
+		
+	}
+	
+	div.controls {
+		float: left;
+		position: absolute;
+		display: inline-flex;
+		margin-right: 20px;
+		
+		
+	}
+	
+	div.stats {
+		margin-left: 0px;
+		margin-right: 0px;
+		display: inline-flex;
+	}
+	
+</style>
+</head>
+<body onload="startGame()"style ="overflow: hidden;">
+<script>
+
+var myGamePiece;
+var myGamePiece2;
+var myGamePiece3;
+var myGamePiece4;
+var background;
+var target;
+var wheel1;
+var wheel2;
+var wheel3;
+var wheel4;
+	var mytank;
+	var mybarel;
+var ab = 1;
+var pow;
+pow = 20;
+var y;
+y = 20;
+var k;
+var g;
+var mytankbarell
+var shotline;
+var ad;
+var one8;
+var rot;
+var powe;
+var wid;
+var rote;
+var tar;
+var tarx;
+var fuel;
+var wep1;
+var wep2;
+var wep3;
+var score;
+var a;
+var shot1;
+var shot2;
+var shot3;
+var shot4;
+var shot5;
+var shot6;
+var shot7;
+var shot8;
+var shot9;
+var shot10;
+var shot11;
+var shot12;
+var shot13;
+var shot14;
+var shot15;
+var shot16;
+var shot17;
+var shot18;
+var shot19;
+var shot20;
+var shot21;
+var shot22;
+var shot23;
+var aishotreal;
+var powertru;
+var enemyshot;
+var gravity;
+var enemyshotcontrol;
+var error;
+var errorchng;
+var life;
+var errorsign;
+var errorpercent;
+var stopper;
+var enemytank;
+var enemytankbarell;
+var enemytanktop;
+var enemylife;
+var damage;
+var ranchance;
+var movee;
+var movement;
+var ranmove;
+var ranmovemod;
+var blackhole;
+var blackholey;
+var blackholex;
+function startGame() {
+	ranmovemod = 0;
+	ranmove = 0;
+	movee = 0;
+	ranchance = .5
+		error =(Math.floor(Math.random() * 10 + 2 ) / 3.5);
+		enemylife = 5;
+		stopper = 0;
+		ab = 1;
+		score = 0;
+		life = 5;
+		fuel = 100;
+		rote = 0;
+		wep1 = 1;
+		wep2 = 1;
+	  wep3 = 1;
+		damage = 2;
+		gravity = 0;
+		powertru = 0;
+		randoms();
+			randomsb();
+	
+		myGamePiece4 = new component(21,17,"red",27,569);
+    myGamePiece = new component(10, 10, "grey", 27, 569);
+	  myGamePiece2 = new component(10, 10, "black", 27, 569);
+	  myGamePiece3 = new component(10, 10, "grey", 27, 569);
+		myGamePiececontrol = new component(10, 10, "black", 27, 569);
+		target = new targets(80,80, "darkgreen", tarx, tar);
+		blackhole = new blackhole(18,30, "black", blackholex, blackholey);
+		shot1 = new AIshot(10, 10, "white", 1473, 569, 85, 45);
+		shot2 = new AIshot(10, 10, "white", 1473, 569, 85, 40);
+		shot3 = new AIshot(10, 10, "white", 1473, 569, 85, 50);
+		shot4 = new AIshot(10, 10, "white", 1473, 569, 85, 35);
+		shot5 = new AIshot(10, 10, "white", 1473, 569, 85, 55);
+		shot6 = new AIshot(10, 10, "white", 1473, 569, 85, 30);
+		shot7 = new AIshot(10, 10, "white", 1473, 569, 85, 60);
+		shot8 = new AIshot(10, 10, "white", 1473, 569, 85, 25);
+		shot9 = new AIshot(10, 10, "white", 1473, 569, 85, 65);
+		shot10 = new AIshot(10, 10, "white", 1473, 569, 85, 20);
+		shot11 = new AIshot(10, 10, "white", 1473, 569, 85, 70);
+		shot12 = new AIshot(10, 10, "white", 1473, 569, 85, 15);
+		shot13 = new AIshot(10, 10, "white", 1473, 569, 85, 75);
+		shot14 = new AIshot(10, 10, "white", 1473, 569, 75, 45);
+		shot15 = new AIshot(10, 10, "white", 1473, 569, 75, 50);
+		shot16 = new AIshot(10, 10, "white", 1473, 569, 75, 40);
+		shot17 = new AIshot(10, 10, "white", 1473, 569, 75, 35);
+		shot18 = new AIshot(10, 10, "white", 1473, 569, 75, 55);
+		shot19 = new AIshot(10, 10, "white", 1473, 569, 75, 30);
+		shot20 = new AIshot(10, 10, "white", 1473, 569, 75, 60);
+		shot21 = new AIshot(10, 10, "white", 1473, 569, 75, 25);
+		shot22 = new AIshot(10, 10, "white", 1473, 569, 75, 65);
+		shot23 = new AIshot(10, 10, "white", 1473, 569, 75, 20);
+		shot24 = new AIshot(10, 10, "white", 1473, 569, 75, 70);
+		enemyshot = new AIshot(10,10,"red",1473,569,85,45);
+		enemyshotcontrol = new AIshot(10,10,"red",1473,569,85,45)
+		enemytanktop = new component(21,17,"grey",1473,569);
+		enemytank = new tank(54, 22, "grey", 1446, 566.5);
+		enemytankbarell = new tankbarellen(10, 40, "grey", -10, 10, 1468, 569);
+		
+	
+	
+	
+		mytankbarell = new tankbarell(10, 40, "darkgreen", -10, 10, 22, 569);
+		shotline = new tankbarellpow(7, 40, "grey", -10, 10, 20.75, 569)
+		wheel1 = new wheels(13.5,13.5, "https://thetomatos.com/wp-content/uploads/2017/02/black-and-white-wagon-wheel-clipart.png", 0,0,47.25,573.25)
+		wheel2 = new wheels(13.5,13.5, "https://thetomatos.com/wp-content/uploads/2017/02/black-and-white-wagon-wheel-clipart.png", 0,0,6.75,573.25)
+		wheel3 = new wheels(13.5,13.5, "https://thetomatos.com/wp-content/uploads/2017/02/black-and-white-wagon-wheel-clipart.png", 0,0,20.25,573.25)
+		wheel4 = new wheels(13.5,13.5, "https://thetomatos.com/wp-content/uploads/2017/02/black-and-white-wagon-wheel-clipart.png", 0,0,33.75,573.25)
+		mytank = new tank(54, 22, "darkgreen", 0, 566.5);
+		background = new background(1500,580, "https://upload.wikimedia.org/wikipedia/commons/4/4b/Gettysburgbattlefield.jpg",0,0)
+    myGameArea.start();
+}
+function randoms() {
+	tar = Math.floor((Math.random()*250)+150)
+		tarx = Math.floor((Math.random()*1250)+100)
+}
+function randomsb() {
+	blackholey = Math.floor((Math.random()*250)+150)
+		blackholex = Math.floor((Math.random()*1250)+100)
+}
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 1500;
+        this.canvas.height = 580;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+	stop : function() {
+        clearInterval(this.interval);
+    }
+}
+function tank(width, height, color, x, y) {
+		//creates obstacle
+    this.width = width;
+    this.height = height;
+    this.x = x;
+	
+    this.y = y; 
+	//updates obstacle
+    this.update = function(){
+								ctx.save();
+
+        ctx = myGameArea.context;
+			
+        ctx.translate(0, 0,);  
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+				ctx.restore()
+				ctx.save()
+		}
+}
+	
+	
+	
+			
+function sliders() {
+    var l = document.getElementById("myRange").value;
+    document.getElementById("demo").innerHTML = l;
+		powe = l * (a * .04111)
+		
+    k = document.getElementById("myRange").value;
+		
+}
+	
+
+	
+	function angle() {
+    a = document.getElementById("angle").value;
+    document.getElementById("demo1").innerHTML = 90 - a;
+		g = 90 - a;
+		rot = ((a *Math.PI /180) + Math.PI)
+    
+}
+	
+function component(width, height, color, x, y, oppacity) {
+    this.width = width;
+	
+    this.height = height;
+    this.x = x;
+	  this.xspeed = 0;
+		this.yspeed = 0;
+	  this.bounce = .2;
+    this.y = y;
+		this.incrs = gravity
+		this.oppacity = oppacity
+	
+    this.update = function(){
+         ctx = myGameArea.context;
+				
+				ctx.globalAlpha = 1
+				
+        ctx.translate(0, 0,);  
+        ctx.fillStyle = color;
+			  ctx.fill()
+				ctx.beginPath()
+        ctx.ellipse(this.x, this.y, this.width, this.height,0,0,2*Math.PI, false);
+					ctx.restore()
+				ctx.save()
+				
+    }
+		this.posit =  function(){
+			//move ball in y
+			this.yspeed += this.incrs
+	  	this.y += this.yspeed
+		
+		
+		}
+		this.movex = function(){
+		
+			this.x += this.xspeed;
+		}
+		
+		this.hitbottom = function(){
+			var stop = true;
+			if(this.y > 600){
+				this.y = 600;
+			this.x = this.x
+			}
+	
+			
+		}
+	this.crashWith = function(otherobj) {
+			//end the game
+        var myleft = this.x - this.width
+        var myright = this.x + this.width
+        var mytop = this.y - this.height
+        var mybottom = this.y + this.height
+        var otherleft = otherobj.x -(this.width + 10);
+        var otherright = otherobj.x + (otherobj.width + 10);
+        var othertop = otherobj.y - (otherobj.height)
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+	
+		
+		
+		
+}
+	
+function AIshot(width, height, color, x, y, power, angle) {
+	//set up function for other tank pos by doing the math to solve where other tank is in comparison
+    this.width = width;
+	
+    this.height = height;
+		this.power = power;
+		this.angle = angle;
+    this.x = x;
+	  this.incrs = 0;
+	  this.xspeed = 0;
+		this.yspeed = 0;
+	  this.bounce = .2;
+    this.y = y;
+		this.powertru = 0;
+    this.update = function(){
+				
+         ctx = myGameArea.context;
+			
+				
+        ctx.translate(0, 0,);  
+			
+        ctx.fillStyle = color;
+			  ctx.fill()
+				ctx.beginPath()
+        ctx.ellipse(this.x, this.y, this.width, this.height,0,0,2*Math.PI, false);
+				
+					ctx.restore()
+				ctx.save()
+    }
+		this.posit =  function(){
+			//move ball in y
+			this.yspeed += this.incrs
+	  	this.y += this.yspeed
+		
+		
+		}
+		this.movex = function(){
+		
+			this.x -= this.xspeed;
+		}
+		
+		this.hitbottom = function(){
+			var stop = true;
+			if(this.y > 600){
+				this.y = 600;
+			}
+	
+			
+		}
+		this.predictshotang = function(){
+			movee = 0;
+			this.yspeed = -((powertru)* (Math. sin(45* (Math.PI / 180))));
+			this.xspeed = ((powertru)* (Math. cos(45* (Math.PI / 180))));
+			this.incrs = .4
+			
+		}
+		this.shotang = function(){
+			this.yspeed = -((this.power / 3.5)*(Math. sin(this.angle * (Math.PI / 180))));
+		this.xspeed = ((this.power / 3.5)*(Math. cos(this.angle* (Math.PI / 180))));
+		this.incrs =.4
+		}
+		
+	this.crashWith = function(otherobj) {
+			//end the game
+        var myleft = this.x - (this.width + 10)
+        var myright = this.x + (this.width + 10)
+        var mytop = this.y - (this.height + 10)
+        var mybottom = this.y + (this.height + 10)
+        var otherleft = otherobj.x -this.width
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y - (otherobj.height)
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+	this.hitNear = function(otherobj) {
+			//end the game
+        var myleft = this.x
+        var myright = this.x 
+        var mytop = this.y
+        var mybottom = this.y 
+        var otherleft = otherobj.x -(this.width + 200);
+        var otherright = otherobj.x + (otherobj.width + 200);
+        var othertop = otherobj.y - (otherobj.height)
+        var otherbottom = otherobj.y + (otherobj.height);
+        var hit = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            hit = false;
+        }
+        return hit;
+    }
+}
+	function poweertru() {
+		if(error < 0){
+			error = 0;
+		}
+		errorpercent= Math.random();
+		  errorsign = Math.floor(Math.random()* 10 + 1);
+		  
+		if(errorsign > 5){
+		errorchng = (error * errorpercent)
+		}
+		if(errorsign < 6) {
+			errorchng = -(error * errorpercent)
+		}
+		powertru = errorchng +(Math.sqrt((enemyshot.x - mytank.x) * .4))
+		
+	}
+	function enemymove(){
+	   ranmove = Math.floor(Math.random()*15)
+	}
+	function enmov() {
+		fuel -=1.5;
+		if((ranmove - (ranmovemod)) > (3 - ranmovemod * .5)){
+			enemyshot.x -=2.5;
+			enemyshotcontrol.x -= 2.5;
+			enemytank.x -= 2.5;
+			enemytankbarell.transx -= 2.5;
+			enemytanktop.x -= 2.5;
+			error += .0019
+			}
+			if(((ranmove - (ranmovemod)) < (4- ranmovemod *.5)) && (enemyshot.x < 1489)){
+			enemyshot.x +=2.5;
+			enemyshotcontrol.x += 2.5;
+			enemytank.x += 2.5;
+			enemytankbarell.transx += 2.5;
+			enemytanktop.x += 2.5;
+			error += .0019
+			}
+		if(((ranmove - (ranmovemod)) < (4- ranmovemod *.5)) && (enemyshot.x > 1489)){
+		
+			}
+		
+		}
+	
+	window.onkeypress = myFunction
+	function myFunction(event) {
+
+    var keys = event.keyCode;
+    document.getElementById("keyscode").innerHTML = ""
+		if((keys == 119) && (ab == 2)){
+			ab = 1;
+			 document.getElementById("keyscode").innerHTML = "normal"
+			
+			
+		}
+		
+		else if((keys == 119) && (ab == 1)&& (stopper < 1)){
+			ab = 2;
+			 document.getElementById("keyscode").innerHTML = "close range"
+			
+			
+		}
+		
+			
+			if((keys == 115) && (ab == 1)&& (stopper < 1)){
+			ab = 2;
+			 document.getElementById("keyscode").innerHTML = "close range"
+			
+			
+		}
+		else if((keys == 115) && (ab == 2)&& (stopper < 1)){
+			ab = 1;
+			 document.getElementById("keyscode").innerHTML = "normal"
+			
+			
+		}
+		
+			
+		
+		
+	if((keys == 32) && (ab == 1) && (myGamePiece.x < (1 + myGamePiececontrol.x )) && (stopper < 1)){
+		stopper = 1;
+		myGamePiece.yspeed = -((k / 3.5)*(Math. sin(g * (Math.PI / 180))));
+		myGamePiece.xspeed = ((k / 3.5)*(Math. cos(g* (Math.PI / 180))));
+		gravity = .4
+		
+		  			
+    
+			enemymove();
+			ranmovemod= 0;
+ 			setTimeout(function(){poweertru()}, 3100);
+			setTimeout(function(){enemyshot.predictshotang()}, 3200);
+		//setTimeout(function(){shot1.shotang()}, 3000)
+		//setTimeout(function(){shot2.shotang()}, 3000)
+		//setTimeout(function(){shot3.shotang()}, 3000)
+		//setTimeout(function(){shot4.shotang()}, 3000)
+		//setTimeout(function(){shot5.shotang()}, 3000)
+		//setTimeout(function(){shot6.shotang()}, 3000)
+		//setTimeout(function(){shot7.shotang()}, 3000)
+		//setTimeout(function(){shot8.shotang()}, 3000)
+		//setTimeout(function(){shot9.shotang()}, 3000)
+	//	setTimeout(function(){shot10.shotang()}, 3000)
+	//	setTimeout(function(){shot11.shotang()}, 3000)
+	//	setTimeout(function(){shot12.shotang()}, 3000)
+	//	setTimeout(function(){shot13.shotang()}, 3000)
+	//	setTimeout(function(){shot14.shotang()}, 3000)
+	//	setTimeout(function(){shot15.shotang()}, 3000)
+	//	setTimeout(function(){shot16.shotang()}, 3000)
+		//setTimeout(function(){shot17.shotang()}, 3000)
+	//	setTimeout(function(){shot18.shotang()}, 3000)
+	//	 setTimeout(function(){shot19.shotang()}, 3000)
+//		setTimeout(function(){shot20.shotang()}, 3000)
+	//	setTimeout(function(){shot21.shotang()}, 3000)
+		//setTimeout(function(){shot22.shotang()}, 3000)
+//		setTimeout(function(){shot23.shotang()}, 3000)
+	//	setTimeout(function(){shot24.shotang()}, 3000)
+
+		
+		
+	}
+		
+		if((keys == 32) && (ab == 2) && (myGamePiece.x < (1 + myGamePiececontrol.x )) && (stopper < 1)){
+		
+			stopper = 1;
+		myGamePiece.yspeed = -((k / 3.5)*(Math. sin(g * (Math.PI / 180))));
+		myGamePiece.xspeed = ((k / 3.5)*(Math. cos(g* (Math.PI / 180))));
+		
+		gravity =.8
+		  			
+    
+			enemymove();
+			ranmovemod= 0;
+ 			setTimeout(function(){poweertru()}, 3100);
+			setTimeout(function(){enemyshot.predictshotang()}, 3200);
+		
+		
+	}
+		if((keys == 32) && (ab === 3)&& (myGamePiece3.x <(1 + myGamePiececontrol.x ))){
+	
+		myGamePiece3.yspeed = -((k / 3.5)*(Math. sin(g * (Math.PI / 180))));
+		myGamePiece3.xspeed = ((k / 3.5)*(Math. cos(g * (Math.PI / 180))));
+		myGamePiece3.incrs =.4
+	 
+	}
+	 if((keys == 100) && (myGamePiece.x <(1 + myGamePiececontrol.x )) && (myGamePiece2.x <(1 + myGamePiececontrol.x )) && (myGamePiece3.x <(1 + myGamePiececontrol.x )) && (fuel > 1) && (stopper < 1)){
+		 myGamePiece.x +=2.5;
+		 myGamePiece2.x +=2.5;
+		 myGamePiece3.x +=2.5;
+		 myGamePiececontrol.x +=2.5;
+		 myGamePiece4.x +=2.5;
+		 mytank.x +=2.5;
+		 mytankbarell.transx += 2.5;
+		 shotline.transx +=2.5;
+		 rote += 2 * Math.PI /180
+		 wheel1.transx +=2.5;
+		 wheel2.transx +=2.5;
+		 wheel3.transx +=2.5;
+		 wheel4.transx +=2.5;
+		 fuel -= 1.3;
+		 error += .018
+		 
+		
+	}
+	if((keys == 97) && (myGamePiece.x <(1 + myGamePiececontrol.x )) && (myGamePiece2.x <(1 + myGamePiececontrol.x )) && (myGamePiece3.x <(1 + myGamePiececontrol.x )) && (fuel > 1) && (stopper < 1)){
+		 myGamePiece.x -=2.5;
+		 myGamePiece2.x -=2.5;
+		 myGamePiece3.x -=2.5;
+			
+		 myGamePiececontrol.x -=2.5;
+		 myGamePiece4.x -=2.5;
+		 mytank.x -=2.5;
+		 mytankbarell.transx -=2.5;
+		 shotline.transx -=2.5;
+		 wheel1.transx -=2.5;
+		 wheel2.transx -=2.5;
+		 wheel3.transx -=2.5;
+		 wheel4.transx -=2.5;
+		rote -= 2 * Math.PI /180
+		fuel -= 1.3;
+		error += .018
+		
+		 
+		
+	}
+		
+		
+}
+
+
+	function tankbarell(width, height, color, x, y, transx, transy) {
+		//creates obstacle
+    this.width = width;
+    this.height = height;
+    this.x = x;
+	
+    this.y = y; 
+		this.transx = transx;
+		this.transy = transy;
+	//updates obstacle
+    this.update = function(){
+        ctx = myGameArea.context;
+				
+				
+        ctx.translate(this.transx, this.transy);  
+				ctx.rotate(rot);
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+				ctx.restore()
+				ctx.save()
+		}
+}
+	function tankbarellen(width, height, color, x, y, transx, transy) {
+		//creates obstacle
+    this.width = width;
+    this.height = height;
+    this.x = x;
+	
+    this.y = y; 
+		this.transx = transx;
+		this.transy = transy;
+	//updates obstacle
+    this.update = function(){
+        ctx = myGameArea.context;
+				
+				
+        ctx.translate(this.transx, this.transy);  
+				ctx.rotate(135* Math.PI /180);
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+				ctx.restore()
+				ctx.save()
+		}
+}
+	function tankbarellpow(width, height, color, x, y, transx, transy) {
+		//creates obstacle
+    this.width = width;
+    this.height = height;
+    this.x = x;
+	
+    this.y = y; 
+		this.transx = transx;
+		this.transy = transy;
+	//updates obstacle
+    this.update = function(){
+        ctx = myGameArea.context;
+				
+				
+        ctx.translate(this.transx, this.transy);  
+				ctx.rotate(rot);
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, k );
+				ctx.restore()
+				ctx.save()
+		}
+}
+	
+	function wheels(width, height, color, x, y, transx, transy) {
+		//creates obstacle
+		this.image = new Image();
+		this.image.src = color;
+    this.width = width;
+    this.height = height;
+    this.x = x;
+	
+    this.y = y; 
+		this.transx = transx;
+		this.transy = transy;
+	//updates obstacle
+    this.update = function(){
+        ctx = myGameArea.context;
+				
+				
+        ctx.translate(this.transx, this.transy);  
+				ctx.rotate(rote);
+       
+       ctx.drawImage(this.image,-6.75,-6.75,13.5,13.5)
+				ctx.restore()
+				ctx.save()
+		}
+}
+	
+	function background(width, height, color, x, y) {
+		//creates obstacle
+		this.image = new Image();
+		this.image.src = color;
+    this.width = width;
+    this.height = height;
+    this.x = x;
+	
+    this.y = y; 
+		
+	//updates obstacle
+    this.update = function(){
+        ctx = myGameArea.context;
+				
+				
+      
+				
+       
+       ctx.drawImage(this.image,0,-210, 1500, 870)
+				 	ctx.restore()
+				ctx.save()
+		}
+}
+	
+	function targets(width, height, color, x, y) {
+    this.width = width;
+	
+    this.height = height;
+    this.x = x;
+	  
+
+
+    this.y = y;
+	
+    this.update = function(){
+         ctx = myGameArea.context;
+				
+        ctx.translate(0, 0,); 
+			ctx.globalAlpha = 1;
+        ctx.fillStyle = color;
+			  ctx.fill()
+				ctx.beginPath()
+        ctx.ellipse(this.x, this.y, this.width, this.height,0,0,2*Math.PI, false);
+				
+				ctx.restore()
+				ctx.save()
+    }
+		
+	}
+	function blackhole(width, height, color, x, y) {
+    this.width = width;
+	
+    this.height = height;
+    this.x = x;
+	  this.incrs = 0;
+	  this.xspeed = 0;
+
+    this.y = y;
+	
+    this.update = function(){
+         ctx = myGameArea.context;
+				
+				ctx.globalAlpha = .5;
+        ctx.translate(this.x, this.y);  
+				
+        ctx.fillStyle = color;
+			  ctx.fill()
+				ctx.beginPath()
+        ctx.ellipse(0, 0, this.width, this.height,0,0,2*Math.PI, false);
+				ctx.restore()
+				ctx.save()
+    }
+		
+	}
+	
+	function learn() {
+		error -= .1;
+	}
+	function stopping(){
+		stopper = 0;
+		randomsb();
+	}
+function updateGameArea() {
+	if((life > 0) && (enemylife > 0)){
+	if(myGamePiece.crashWith(blackhole)){
+		randomsb();
+		blackhole.x = blackholex;
+		blackhole.y = blackholey;
+		damage += 1
+		fuel = 100;
+		wep1 = 1
+	
+		score +=1;
+	}
+	if(myGamePiece.crashWith(target) == true){
+		if(myGamePiece.y > target.y){
+		myGamePiece.incrs -= .6
+		
+		
+		
+	
+		score +=1;
+		}
+		if(myGamePiece.y < target.y){
+		myGamePiece.incrs += .6
+		
+		
+		
+	
+		score +=1;
+		}
+		if(myGamePiece.x < target.x){
+			myGamePiece.xspeed += .7
+			
+		}
+		if(myGamePiece.x > target.x){
+			myGamePiece.xspeed -= .8
+	
+		}
+		
+	}
+		if(myGamePiece.crashWith(target) == false){
+		myGamePiece.incrs = gravity
+		
+		
+	
+	}
+	if(myGamePiece2.crashWith(blackhole)){
+			randomsb();
+		blackhole.x = blackholex;
+		blackhole.y = blackholey;
+		myGamePiece.yspeed = 0;
+		myGamePiece.xspeed = 0;
+		gravity = 0;
+		myGamePiece2.yspeed = 0;
+		myGamePiece2.xspeed = 0;
+		myGamePiece2.incrs = 0;
+		myGamePiece3.yspeed = 0;
+		myGamePiece3.xspeed = 0;
+		myGamePiece3.incrs = 0;
+		myGamePiece.y = myGamePiececontrol.y
+		myGamePiece.x = myGamePiececontrol.x
+		myGamePiece2.y = myGamePiececontrol.y
+		myGamePiece2.x = myGamePiececontrol.x
+		myGamePiece3.y = myGamePiececontrol.y
+		myGamePiece3.x = myGamePiececontrol.x
+		fuel = 100;
+		wep1 = 1
+		wep2 = 1
+		wep3 = 1
+		score +=1
+	}
+	
+	
+	if(myGamePiece3.crashWith(blackhole)){
+		randomsb();
+		blackhole.x = blackholex;
+		blackhole.y = blackholey;
+		myGamePiece.yspeed = 0;
+		myGamePiece.xspeed = 0;
+		myGamePiece.incrs = 0;
+		myGamePiece2.yspeed = 0;
+		myGamePiece2.xspeed = 0;
+		myGamePiece2.incrs = 0;
+		myGamePiece3.yspeed = 0;
+		myGamePiece3.xspeed = 0;
+		myGamePiece3.incrs = 0;
+		myGamePiece.y = myGamePiececontrol.y
+		myGamePiece.x = myGamePiececontrol.x
+		myGamePiece2.y = myGamePiececontrol.y
+		myGamePiece2.x = myGamePiececontrol.x
+		myGamePiece3.y = myGamePiececontrol.y
+		myGamePiece3.x = myGamePiececontrol.x
+		fuel = 100;
+		wep1 = 1
+		wep2 = 1
+		wep3 = 1
+		score += 1;
+	}
+	if(enemyshot.crashWith(myGamePiece4)){
+			life -= damage;
+			enemyshot.x = enemyshotcontrol.x
+			enemyshot.y = enemyshotcontrol.y
+			enemyshot.incrs = 0
+		damage = 1
+		  error = 0.5;
+	}
+	if(enemyshot.crashWith(blackhole)){
+			
+		damage += 1;
+		randomsb();
+		blackhole.x = blackholex;
+		blackhole.y = blackholey;
+			
+	
+	}
+		if(myGamePiece.crashWith(enemytank)){
+			enemylife -= (damage * ab);
+			
+			myGamePiece.x = myGamePiececontrol.x
+			myGamePiece.y = myGamePiececontrol.y
+			gravity = 0
+			damage=1
+		  ranmovemod += 4;
+			score += 5;
+	}
+		if(enemyshot.hitNear(mytank)){
+				
+				var difference = Math.abs(enemyshot.x-mytank.x);
+				var truedifference = Math.abs(200 - difference);
+				error -= (((truedifference)/100) + .1);
+				enemyshot.x = enemyshotcontrol.x
+				enemyshot.y = enemyshotcontrol.y
+				enemyshot.incr = 0;	
+			
+			
+	}
+	
+	
+	
+	
+	
+	else{
+		document.getElementById("fuel").innerHTML = "                 fuel  " + fuel  + movee
+
+		
+    myGameArea.clear();
+	
+		
+		
+		background.update();
+		ctx.restore();
+		ctx.save();
+		myGamePiece.update();
+		ctx.restore();
+		ctx.save();
+		myGamePiece2.update();
+		ctx.restore();
+		ctx.save();
+		myGamePiece3.update();
+		ctx.restore();
+		ctx.save();
+		myGamePiece4.update();
+		ctx.restore();
+		ctx.save();
+		target.update();
+		ctx.restore();
+		ctx.save();
+		blackhole.update();
+		ctx.restore();
+		ctx.save();
+		
+		
+		
+	 
+		shotline.update();
+		ctx.restore();
+		ctx.save();
+		mytankbarell.update();
+		ctx.restore();
+		ctx.save();
+		mytank.update();
+		ctx.restore();
+		ctx.save();
+		wheel1.update();
+		ctx.restore();
+		ctx.save();
+		wheel2.update();
+		ctx.restore();
+		ctx.save();
+		wheel3.update();
+		ctx.restore();
+		ctx.save();
+		wheel4.update();
+		ctx.restore();
+		ctx.save();
+		
+		
+		angle();
+		sliders();
+	  if(myGamePiece.y < 571){
+	  myGamePiece.posit();
+	  
+	  myGamePiece.movex();
+		}
+		 if(myGamePiece2.y < 571){
+	  myGamePiece2.posit();
+	  
+	  myGamePiece2.movex();
+		}
+	   if(myGamePiece3.y < 571){
+	  myGamePiece3.posit();
+	  
+	  myGamePiece3.movex();
+		}
+		//this.power(in radian)*math.cos(this.angle) - (.4*t) = 0
+		//this.power(in radian)*math.cos(this.angle) = .4*t
+				//this.power(in radian)*math.cos(this.angle)/.4 = t
+		//100*math.sin(this.angle) *t = tank.x
+		//math.sin(this.angle)*t = tank.x /this.powera
+		//math.cos*thiangle =tank.x/this.power*t
+		//this.power(in radian)*math.sin(this.angle) *t = tank.x
+		//set power to be 85
+	
+		enemyshot.update();
+		enemyshot.hitbottom();
+		if(shot1.y < 571){
+		
+			  shot1.movex();
+			  shot1.posit();
+		}
+		if(shot2.y < 571){
+		
+			  shot2.movex();
+			  shot2.posit();
+		}
+		if(shot3.y < 571){
+		
+			  shot3.movex();
+			  shot3.posit();
+		}
+		if(shot4.y < 571){
+		
+			  shot4.movex();
+			  shot4.posit();
+		}
+		if(shot5.y < 571){
+		
+			  shot5.movex();
+			  shot5.posit();
+		}
+		if(shot6.y < 571){
+		
+			  shot6.movex();
+			  shot6.posit();
+		}
+		if(shot7.y < 571){
+	
+			  shot7.movex();
+			  shot7.posit();
+		}
+		if(shot8.y < 571){
+	
+			  shot8.movex();
+			  shot8.posit();
+		}
+		if(shot9.y < 571){
+	
+			  shot9.movex();
+			  shot9.posit();
+	  }
+		if(shot10.y < 571){
+	
+			  shot10.movex();
+			  shot10.posit();
+		}
+		if(shot11.y < 571){
+		
+			  shot11.movex();
+			  shot11.posit();
+		}
+		if(shot12.y < 571){
+		
+			  shot12.movex();
+			  shot12.posit();
+		}
+		if(shot13.y < 571){
+		
+			  shot13.movex();
+			  shot13.posit();
+		}
+		if(shot14.y < 571){
+	
+			  shot14.movex();
+			  shot14.posit();
+		}
+		if(shot15.y < 571){
+
+			  shot15.movex();
+			  shot15.posit();
+		}
+		if(shot16.y < 571){
+	
+			  shot16.movex();
+			  shot16.posit();
+		}
+		if(shot17.y < 571){
+		
+			  shot17.movex();
+			  shot17.posit();
+		}
+		if(shot24.y < 571){
+		
+			  shot24.movex();
+			  shot24.posit();
+		}
+		if(shot18.y < 571){
+		
+			  shot18.movex();
+			  shot18.posit();
+		}
+		if(shot19.y < 571){
+		
+			  shot19.movex();
+			  shot19.posit();
+		}
+		if(shot20.y < 571){
+		
+			  shot20.movex();
+			  shot20.posit();
+		}
+		if(shot21.y < 571){
+	
+			  shot21.movex();
+			  shot21.posit();
+		}
+		if(shot22.y < 571){
+	
+			  shot22.movex();
+			  shot22.posit();
+		}
+		if(shot23.y < 571){
+		
+			  shot23.movex();
+			  shot23.posit();
+		}
+		if(enemyshot.y < 571){
+		
+			  enemyshot.movex();
+			  enemyshot.posit();
+		}
+		
+		
+	
+		shot1.hitbottom();
+		
+		shot2.hitbottom();
+		shot3.hitbottom();
+		shot4.hitbottom();
+		shot5.hitbottom();
+		shot6.hitbottom();
+		shot7.hitbottom();
+		shot8.hitbottom();
+		shot9.hitbottom();
+		shot10.hitbottom();
+		shot11.hitbottom();
+		shot12.hitbottom();
+		shot13.hitbottom();
+		shot14.hitbottom();
+		shot15.hitbottom();
+		shot16.hitbottom();
+		shot17.hitbottom();
+		shot18.hitbottom();
+		shot19.hitbottom();
+		shot20.hitbottom();
+		shot21.hitbottom();
+		shot22.hitbottom();
+		shot23.hitbottom();
+		shot24.hitbottom();
+		 if(myGamePiece.y > 570){
+	  		wep1 = 0
+			 	
+			  
+			 
+			 	
+			 
+		 }
+		 if(myGamePiece2.y > 570){
+	    	wep2 = 0
+		}
+	   if(myGamePiece3.y > 570){
+	  		wep3 = 0
+		}
+		enemytanktop.update();
+		enemytank.update();
+		enemytankbarell.update();
+		
+		
+		document.getElementById("score").innerHTML = "Score:" + score + "   lives:" + life + "      enemy lives:" + enemylife + "     error:" + error + "    stopper:" + stopper + "             Ranmove:" + ranmove + "         ranmovemod:" + ranmovemod
+		//for unlimeted fire
+		//if((myGamePiece.y > 570) && (myGamePiece2.y > 570) && (myGamePiece3.y > 570)){
+		if(myGamePiece.y > 569){
+			myGamePiece.y = myGamePiececontrol.y
+			myGamePiece.x = myGamePiececontrol.x
+		myGamePiece2.y = myGamePiececontrol.y
+		myGamePiece2.x = myGamePiececontrol.x
+		myGamePiece3.y = myGamePiececontrol.y
+		myGamePiece3.x = myGamePiececontrol.x
+			movee = 1;
+			damage = 1
+		}
+		if(enemyshot.y > 571){
+			randoms();
+			target.x = tarx;
+			target.y = tar;
+			error -= .05;
+			damage = 1
+			enemyshot.xspeed = 0;
+			enemyshot.yspeed = 0;
+			enemyshot.x = enemyshotcontrol.x
+			enemyshot.y = enemyshotcontrol.y
+			enemyshot.incrs = 0
+			fuel = 100;
+
+			stopping();
+			
+			//add health implements
+			//add shot randomizers and lines
+			//add double damages and stuff
+		}
+		if((stopper > 0) && (movee > .5) && (enemyshot.y > 568.9) && (myGamePiece.y > 568.9) && (fuel > 1) && (enemyshot.x < 1499)){
+			if((ranmove - ranmovemod) <(7)){
+			enmov();
+			}
+		}
+		
+	}
+	
+	  
+	}
+}
+</script>
+<p id="score"></p>
+	<div class="stats"><p id="keyscode">  </p> <p id="wep1"></p>     <br>  <p id="wep2"></p> <p id="wep3"></p>
+	
+	<p id="fuel">fuel</p></div><br>
+	<div class="controls">
+ <input type="range" min="1" max="100" value="0" class="slider" id="myRange"> <p>Power: <span id="demo"></span></p>
+	<input type="range" min="1" max="90" value="0" class="slider" id="angle"> <p> Angle: <span id="demo1"></span></p>
+	</div>
+			 
+
+</body>
+</html>
